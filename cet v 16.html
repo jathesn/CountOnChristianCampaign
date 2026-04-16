@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian for Treasurer — Campaign OS 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B3A6B;--navy-dark:#0f2347;--navy-light:#2a4f8f;
+  --gold:#F5C842;--gold-dark:#d4a017;--gold-light:#ffe680;
+  --bg:#f9f8f6;--surface:#ffffff;--surface2:#f5f4f1;
+  --border:#e5e7eb;--border-strong:#d1d5db;
+  --charcoal:#1f2937;--mid:#374151;--muted:#6b7280;--faint:#9ca3af;
+  --green:#16a34a;--green-pale:#f0fdf4;
+  --red:#dc2626;--red-pale:#fef2f2;
+  --amber:#d97706;--amber-pale:#fffbeb;
+  --blue:#2c4fd4;--blue-pale:#eef1fd;
+  --purple:#7c3aed;--purple-pale:#f5f3ff;
+  --teal:#0d9488;--teal-pale:#f0fdfa;
+  --orange:#ff7a2e;--orange-pale:#fff3ec;--orange-soft:#ffe0cc;
+  --radius:12px;--radius-sm:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 12px rgba(0,0,0,.12);
+  --pixel:'Press Start 2P',monospace;--sans:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{cursor:none}
+body{font-family:var(--sans);background:var(--bg);color:var(--charcoal);min-height:100vh}
+a,button,input,select,textarea,[onclick]{cursor:none}
+
+/* ── CURSOR ── */
+#cursor{position:fixed;width:44px;height:44px;pointer-events:none;z-index:99999;transform:translate(-4px,-4px);image-rendering:pixelated;transition:transform .05s}
+
+/* ── HEADER ── */
+.hdr{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--navy-light) 100%);padding:0;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(245,200,66,.03) 2px,rgba(245,200,66,.03) 4px);pointer-events:none}
+.hdr-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;flex-wrap:wrap}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.logo-ring{width:68px;height:68px;border-radius:50%;border:3px solid var(--gold);overflow:hidden;box-shadow:0 0 20px rgba(245,200,66,.4);flex-shrink:0;background:transparent}
+.logo-ring canvas{width:68px;height:68px;image-rendering:pixelated;display:block}
+.hdr-title h1{font-family:var(--pixel);font-size:9px;color:var(--gold);text-shadow:0 0 10px rgba(245,200,66,.5);line-height:1.8;letter-spacing:.02em}
+.hdr-title p{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+.hdr-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* Countdown */
+.cd-block{background:rgba(245,200,66,.1);border:2px solid var(--gold);border-radius:8px;padding:8px 14px;text-align:center;box-shadow:0 0 15px rgba(245,200,66,.2)}
+.cd-lbl{font-family:var(--pixel);font-size:6px;color:var(--gold);margin-bottom:4px;letter-spacing:.06em}
+.cd-nums{display:flex;gap:4px;align-items:center}
+.cd-unit{text-align:center}
+.cd-val{font-family:var(--pixel);font-size:16px;color:#fff;text-shadow:0 0 8px var(--gold);display:block;min-width:28px}
+.cd-unit-lbl{font-family:var(--pixel);font-size:5px;color:var(--muted)}
+.cd-sep{font-family:var(--pixel);font-size:14px;color:var(--gold);line-height:1;padding-bottom:8px}
+
+/* XP */
+.xp-wrap{min-width:170px}
+.xp-top{display:flex;justify-content:space-between;font-family:var(--pixel);font-size:6px;color:var(--gold);margin-bottom:4px}
+.xp-bar{height:11px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden;border:1px solid rgba(245,200,66,.3)}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));border-radius:6px;transition:width .5s;animation:xpp 2s infinite}
+@keyframes xpp{0%,100%{opacity:1}50%{opacity:.7}}
+
+/* ── NAV ── */
+.nav-wrap{background:var(--surface);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:50;overflow-x:auto}
+.nav{display:flex;min-width:max-content}
+.nb{padding:10px 14px;font-family:var(--pixel);font-size:7px;border:none;background:transparent;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;letter-spacing:.01em}
+.nb:hover{color:var(--navy);background:rgba(27,58,107,.04)}
+.nb.active{color:var(--navy);border-bottom-color:var(--navy);background:rgba(27,58,107,.05)}
+
+/* ── MAIN ── */
+.main{padding:16px 20px;max-width:1140px;margin:0 auto}
+.sec{display:none}.sec.vis{display:block}
+.sec-header{display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
+.sec-header h2{font-family:var(--pixel);font-size:10px;color:var(--navy)}
+.sec-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── CARDS ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card h3{font-family:var(--pixel);font-size:8px;color:var(--navy);margin-bottom:12px}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.card-sub{font-size:11.5px;color:var(--muted)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:680px){.two-col,.three-col{grid-template-columns:1fr}}
+
+/* ── METRIC CARDS ── */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.mc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow);transition:box-shadow .15s}
+.mc:hover{box-shadow:var(--shadow-md)}
+.mc.accent{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-color:var(--gold)}
+.mc .ml{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.mc .mv{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--charcoal);line-height:1}
+.mc.accent .ml,.mc.accent .mv,.mc.accent .ms{color:rgba(255,255,255,.9)}
+.mc.accent .mv{color:var(--gold)}
+.mc .ms{font-size:11px;color:var(--faint);margin-top:3px}
+
+/* ── FORMS ── */
+.inp,.sel{padding:8px 11px;font-size:13px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);color:var(--charcoal);width:100%;font-family:var(--sans);transition:border-color .15s,box-shadow .15s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(27,58,107,.1)}
+.ta{resize:vertical;font-family:var(--sans)}
+.form-row{display:grid;gap:8px;margin-bottom:8px}
+.f2{grid-template-columns:1fr 1fr}
+.f3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:520px){.f2,.f3{grid-template-columns:1fr}}
+.fl{font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.btn-pri{padding:9px 18px;font-family:var(--pixel);font-size:7px;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--gold);border:none;border-radius:var(--radius-sm);box-shadow:0 4px 0 var(--navy-dark);transition:all .1s;letter-spacing:.03em}
+.btn-pri:active{transform:translateY(2px);box-shadow:0 2px 0 var(--navy-dark)}
+.btn-pri:hover{background:linear-gradient(135deg,var(--navy-light),var(--navy))}
+.btn-sec{padding:7px 14px;font-size:12px;font-family:var(--sans);background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius-sm);color:var(--mid);transition:all .15s}
+.btn-sec:hover{background:var(--surface2);border-color:var(--navy)}
+.btn-del{padding:3px 8px;font-size:11px;background:var(--red-pale);border:1px solid #fca5a5;border-radius:var(--radius-sm);color:var(--red)}
+
+/* ── PILLS ── */
+.pill{font-size:10px;padding:2px 8px;border-radius:100px;font-weight:600;display:inline-block}
+.p-gold{background:rgba(245,200,66,.15);color:var(--gold-dark)}
+.p-green{background:var(--green-pale);color:var(--green)}
+.p-red{background:var(--red-pale);color:var(--red)}
+.p-blue{background:var(--blue-pale);color:var(--blue)}
+.p-amber{background:var(--amber-pale);color:var(--amber)}
+.p-gray{background:var(--surface2);color:var(--mid)}
+.p-purple{background:var(--purple-pale);color:var(--purple)}
+.p-teal{background:var(--teal-pale);color:var(--teal)}
+.p-navy{background:rgba(27,58,107,.1);color:var(--navy)}
+
+/* ── PROGRESS ── */
+.prog-wrap{margin-bottom:8px}
+.prog-label{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-bottom:5px}
+.prog-bar{height:7px;background:var(--surface2);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;border-radius:100px;transition:width .4s}
+.pf-gold{background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
+.pf-green{background:linear-gradient(90deg,#16a34a,#22c55e)}
+.pf-blue{background:linear-gradient(90deg,var(--blue),#4a6aef)}
+.pf-amber{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pf-navy{background:linear-gradient(90deg,var(--navy),var(--navy-light))}
+
+/* ── TAB INNER ── */
+.tab-inner{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.tab-inner button{padding:5px 12px;font-size:11px;border-radius:100px;border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);font-family:var(--sans);transition:all .15s}
+.tab-inner button.act{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+.tab-inner button:hover:not(.act){border-color:var(--navy);color:var(--navy)}
+
+/* ── TASK ROW ── */
+.task-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.task-row:last-child{border-bottom:none}
+.task-chk{width:18px;height:18px;border-radius:5px;border:2px solid var(--border-strong);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.task-chk.done{background:var(--gold);border-color:var(--gold-dark)}
+.task-chk.done::after{content:'✓';font-size:10px;color:var(--navy);font-weight:900}
+.task-info{flex:1}
+.task-title{font-size:13px;font-weight:500;color:var(--charcoal)}
+.task-title.done{text-decoration:line-through;color:var(--faint)}
+.task-meta{font-size:11px;color:var(--muted);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
+
+/* ── ALLY CARD ── */
+.ally-card{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.ally-card:last-child{border-bottom:none}
+.ally-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.ally-info{flex:1}
+.ally-name{font-size:13px;font-weight:600}
+.ally-role{font-size:11px;color:var(--muted);margin-top:1px}
+.ally-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+
+/* ── CONTENT ROW ── */
+.con-row{padding:9px 0;border-bottom:1px solid var(--border)}
+.con-row:last-child{border-bottom:none}
+.con-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.con-title{font-size:13px;font-weight:600}
+.con-body{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+.con-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+
+/* ── EVENT ROWS ── */
+.ev-attend-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border)}
+.ev-attend-row:last-child{border-bottom:none}
+.ev-date-box{min-width:42px;text-align:center;background:rgba(27,58,107,.06);border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px 6px}
+.ev-mon{font-size:9px;color:var(--navy);text-transform:uppercase;font-weight:700;letter-spacing:.05em}
+.ev-day{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1}
+.ev-info{flex:1}
+.ev-title{font-size:13px;font-weight:600}
+.ev-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.ev-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+.imp-bar{display:flex;gap:3px;margin-top:4px}
+.imp-dot{width:10px;height:10px;border-radius:2px;background:var(--border)}
+.imp-dot.on{background:var(--gold-dark)}
+
+/* ── FUNDER ROW ── */
+.funder-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.funder-row:last-child{border-bottom:none}
+.funder-info{flex:1}
+.funder-name{font-size:13px;font-weight:600}
+.funder-detail{font-size:11px;color:var(--muted);margin-top:1px}
+.funder-amt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);min-width:70px;text-align:right}
+
+/* ── CALENDAR ── */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:8px}
+.cal-hdr-row{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px}
+.cal-day-name{font-size:9px;color:var(--muted);text-align:center;padding:3px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.cal-day{border-radius:var(--radius-sm);padding:4px 3px;min-height:52px;background:var(--surface2);border:1px solid transparent;transition:all .1s}
+.cal-day:hover{background:rgba(27,58,107,.06);border-color:var(--border)}
+.cal-day .day-num{font-size:11px;font-weight:600;color:var(--mid)}
+.cal-day .day-ev{font-size:9px;padding:1px 4px;border-radius:3px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cal-day.today{border-color:var(--gold);background:rgba(245,200,66,.08)}
+.cal-day.today .day-num{color:var(--gold-dark)}
+.cal-day.other-month .day-num{opacity:.3}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.cal-nav button{padding:5px 12px;font-size:12px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);color:var(--mid)}
+.cal-nav button:hover{background:var(--navy);color:var(--gold)}
+.cal-month-lbl{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--charcoal)}
+
+/* ── BLANK STATE ── */
+.blank-state{background:var(--surface2);border:2px dashed var(--border-strong);border-radius:var(--radius);padding:2rem;text-align:center;color:var(--muted);font-size:13px}
+.blank-icon{font-size:28px;margin-bottom:.5rem;opacity:.5}
+
+/* ── QUICK ITEM ── */
+.quick-item{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)}
+.quick-item:last-child{border-bottom:none}
+.qi-label{flex:1;font-size:12.5px}
+.qi-right{font-size:11.5px;color:var(--muted)}
+
+/* ══════════ GAMIFIED MAP ══════════ */
+.map-container{background:linear-gradient(180deg,#0a1628 0%,#0d2a4a 50%,#0a1628 100%);border:3px solid var(--gold);border-radius:12px;padding:20px;position:relative;overflow:hidden}
+.map-container::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(245,200,66,.06) 0%,transparent 60%);pointer-events:none}
+.map-title{font-family:var(--pixel);font-size:9px;color:var(--gold);text-align:center;margin-bottom:16px;text-shadow:0 0 12px rgba(245,200,66,.6)}
+.map-path{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:1}
+.map-node{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.map-space{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:3px solid;position:relative;transition:transform .2s,box-shadow .2s}
+.map-space.done{background:rgba(34,197,94,.2);border-color:#22c55e;box-shadow:0 0 10px rgba(34,197,94,.4)}
+.map-space.current{background:rgba(245,200,66,.25);border-color:var(--gold);box-shadow:0 0 20px rgba(245,200,66,.7);animation:curPulse 1.5s infinite}
+.map-space.future{background:rgba(27,58,107,.4);border-color:rgba(255,255,255,.2);opacity:.6}
+.map-space.milestone{width:58px;height:58px;font-size:22px;border-color:var(--gold)!important;background:rgba(245,200,66,.15)!important}
+@keyframes curPulse{0%,100%{box-shadow:0 0 20px rgba(245,200,66,.7)}50%{box-shadow:0 0 35px rgba(245,200,66,1)}}
+.cand-token{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:20px;animation:tokenBounce .8s infinite alternate;z-index:10}
+@keyframes tokenBounce{from{transform:translateX(-50%) translateY(0)}to{transform:translateX(-50%) translateY(-6px)}}
+.map-day-lbl{font-family:var(--pixel);font-size:6px;color:var(--gold)}
+.map-space-lbl{font-family:var(--pixel);font-size:5px;color:rgba(255,255,255,.5);text-align:center;max-width:58px}
+.map-dot{color:rgba(255,255,255,.2);margin-top:-20px;font-size:12px}
+.map-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.mstat{background:rgba(255,255,255,.04);border:1px solid rgba(245,200,66,.2);border-radius:8px;padding:10px;text-align:center}
+.mstat .sv{font-family:var(--pixel);font-size:13px;color:var(--gold)}
+.mstat .sl{font-size:10px;color:rgba(255,255,255,.5);margin-top:3px}
+.map-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,.6)}
+.leg-dot{width:10px;height:10px;border-radius:50%;border:2px solid}
+
+/* ══════════ SPINNING WHEEL ══════════ */
+.wheel-wrap{position:relative;display:inline-block}
+.wheel-canvas{border-radius:50%;border:4px solid var(--gold);box-shadow:0 0 30px rgba(245,200,66,.5)}
+.wheel-ptr{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:26px solid var(--gold);filter:drop-shadow(0 0 6px rgba(245,200,66,.8))}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--navy-dark);border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--pixel);font-size:8px;color:var(--gold);box-shadow:0 0 12px rgba(245,200,66,.4)}
+.spin-btn{padding:12px 28px;font-family:var(--pixel);font-size:9px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy-dark);border:none;border-radius:8px;box-shadow:0 6px 0 var(--gold-dark),0 0 20px rgba(245,200,66,.4);transition:all .1s;animation:spinBtnPulse 2s infinite}
+@keyframes spinBtnPulse{0%,100%{box-shadow:0 6px 0 var(--gold-dark),0 0 20px rgba(245,200,66,.4)}50%{box-shadow:0 6px 0 var(--gold-dark),0 0 35px rgba(245,200,66,.7)}}
+.spin-btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--gold-dark)}
+.spin-btn:disabled{opacity:.5}
+.spin-result{background:var(--surface);border:2px solid var(--gold);border-radius:12px;padding:18px;text-align:center}
+.spin-result .sr-emoji{font-size:44px;margin-bottom:8px;display:block}
+.spin-result .sr-action{font-family:var(--pixel);font-size:9px;color:var(--navy);margin-bottom:8px}
+.spin-result .sr-desc{font-size:13px;color:var(--charcoal);line-height:1.55}
+.spin-count{font-family:var(--pixel);font-size:7px;color:var(--muted)}
+
+/* ══════════ 30-DAY CHALLENGE ══════════ */
+.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:8px}
+.ch-day{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;transition:all .2s}
+.ch-day.completed{background:rgba(22,163,74,.06);border-color:rgba(22,163,74,.3)}
+.ch-day.today-day{border-color:var(--gold);box-shadow:0 0 10px rgba(245,200,66,.2)}
+.ch-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.ch-num{font-family:var(--pixel);font-size:8px;color:var(--navy)}
+.ch-chk{width:18px;height:18px;border-radius:4px;border:2px solid var(--border-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.ch-chk.done{background:var(--green);border-color:var(--green)}
+.ch-chk.done::after{content:'✓';font-size:10px;color:#fff;font-weight:900}
+.ch-task-inp{width:100%;font-size:11px;background:transparent;border:none;color:var(--charcoal);padding:0;outline:none;font-family:var(--sans)}
+.ch-task-inp::placeholder{color:var(--faint);font-size:11px}
+.ch-date{font-size:9px;color:var(--faint);margin-top:4px}
+
+/* ── TURF ── */
+.turf-row{padding:10px 0;border-bottom:1px solid var(--border)}
+.turf-row:last-child{border-bottom:none}
+
+/* ── VOL CARD ── */
+.vol-card{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.vol-card:last-child{border-bottom:none}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);border:2px solid var(--gold);border-radius:8px;padding:12px 18px;font-family:var(--pixel);font-size:7px;color:var(--gold);z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;max-width:260px}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* scroll */
+::-webkit-scrollbar{height:4px;width:4px}::-webkit-scrollbar-track{background:var(--surface2)}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<canvas id="cursor" width="44" height="44" style="position:fixed;pointer-events:none;z-index:99999;image-rendering:pixelated"></canvas>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-left">
+      <div class="logo-ring" style="position:relative" title="Click to change photo">
+  <canvas id="logoCanvas" width="68" height="68" onclick="document.getElementById('photoUpload').click()" style="display:block"></canvas>
+  <img id="logoImg" src="" alt="" style="display:none;width:68px;height:68px;object-fit:cover;border-radius:50%;position:absolute;inset:0">
+  <div onclick="document.getElementById('photoUpload').click()" style="position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:18px" id="photoOverlay">📷</div>
+  <input type="file" id="photoUpload" accept="image/*" style="display:none" onchange="changePhoto(this)">
+</div>
+      <div class="hdr-title">
+        <h1>CHRISTIAN FOR TREASURER</h1>
+        <p>Douglas County Primary — May 12, 2026 · Campaign OS</p>
+        <button class="nb" onclick="show('activity',this)">🔔 ACTIVITY LOG</button>
+  </div>
+    </div>
+    <div class="hdr-right">
+      <div class="cd-block">
+        <div class="cd-lbl">CHICAGO TIME TO MAY 12</div>
+        <div class="cd-nums">
+          <div class="cd-unit"><span class="cd-val" id="cd-d">29</span><span class="cd-unit-lbl">DAYS</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-val" id="cd-h">00</span><span class="cd-unit-lbl">HRS</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-val" id="cd-m">00</span><span class="cd-unit-lbl">MIN</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-val" id="cd-s">00</span><span class="cd-unit-lbl">SEC</span></div>
+        </div>
+      </div>
+      <div class="xp-wrap">
+        <div class="xp-top"><span>CAMPAIGN XP</span><span id="xp-val">0 / 1000</span></div>
+        <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
+        <div style="font-family:var(--pixel);font-size:6px;color:var(--muted);margin-top:3px">LVL <span id="xp-lv">1</span> CAMPAIGNER</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="nb active" onclick="show('overview',this)">🏠 OVERVIEW</button>
+    <button class="nb" onclick="show('map',this)">🗺️ MAP</button>
+    <button class="nb" onclick="show('wheel',this)">🎰 SPIN WHEEL</button>
+    <button class="nb" onclick="show('challenge',this)">⚔️ 30-DAY PLAN</button>
+    <button class="nb" onclick="show('fundraising',this)">💰 FUNDRAISING</button>
+    <button class="nb" onclick="show('content',this)">📱 CONTENT CAL</button>
+    <button class="nb" onclick="show('tasks',this)">✅ TASKS</button>
+    <button class="nb" onclick="show('events-host',this)">📅 OUR EVENTS</button>
+    <button class="nb" onclick="show('events-attend',this)">🎤 APPEARANCES</button>
+    <button class="nb" onclick="show('allies',this)">🤝 ALLIES</button>
+    <button class="nb" onclick="show('funders',this)">💼 FUNDERS</button>
+    <button class="nb" onclick="show('volunteers',this)">🙋 VOLUNTEERS</button>
+    <button class="nb" onclick="show('turf',this)">📍 TURF</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ══════════ OVERVIEW ══════════ -->
+<div id="sec-overview" class="sec vis">
+  <div class="sec-header"><div class="sec-dot"></div><h2>CAMPAIGN HEADQUARTERS</h2></div>
+  <div class="mgrid">
+    <div class="mc accent"><div class="ml">Days Left</div><div class="mv" id="ov-days">29</div><div class="ms">to May 12</div></div>
+    <div class="mc"><div class="ml">Total Raised</div><div class="mv" id="ov-raised">$0</div><div class="ms" id="ov-goal-pct">of $25,000</div></div>
+    <div class="mc"><div class="ml">Open Tasks</div><div class="mv" id="ov-tasks">0</div><div class="ms" id="ov-overdue" style="color:var(--red)">0 overdue</div></div>
+    <div class="mc"><div class="ml">Campaign XP</div><div class="mv" id="ov-xp">0</div><div class="ms" id="ov-lv">Level 1</div></div>
+    <div class="mc"><div class="ml">Allies</div><div class="mv" id="ov-allies">0</div><div class="ms">in network</div></div>
+    <div class="mc"><div class="ml">Content</div><div class="mv" id="ov-content">0</div><div class="ms">in pipeline</div></div>
+  </div>
+  <div class="card">
+    <h3>📊 FUNDRAISING PROGRESS</h3>
+    <div class="prog-wrap">
+      <div class="prog-label"><span id="ov-r-lbl">$0 raised</span><span id="ov-g-lbl">$25,000 goal</span></div>
+      <div class="prog-bar" style="height:12px"><div class="prog-fill pf-gold" id="ov-prog" style="width:0%"></div></div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="card"><h3>⚡ UPCOMING TASKS</h3><div id="ov-task-list"><div style="font-size:12px;color:var(--faint)">No tasks yet</div></div></div>
+    <div class="card"><h3>📱 CONTENT PIPELINE</h3><div id="ov-con-list"><div style="font-size:12px;color:var(--faint)">No content yet</div></div></div>
+  </div>
+  <div class="card">
+    <h3>🎮 QUICK ACTIONS</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-pri" onclick="show('wheel',document.querySelectorAll('.nb')[2])">🎰 SPIN WHEEL</button>
+      <button class="btn-pri" onclick="show('map',document.querySelectorAll('.nb')[1])">🗺️ VIEW MAP</button>
+      <button class="btn-pri" onclick="show('challenge',document.querySelectorAll('.nb')[3])">⚔️ 30-DAY PLAN</button>
+      <button class="btn-sec" onclick="show('fundraising',document.querySelectorAll('.nb')[4])">💰 Log Donation</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MAP ══════════ -->
+<div id="sec-map" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🗺️ DOUGLAS COUNTY CAMPAIGN MAP</h2></div>
+  <div class="card map-container">
+    <div class="map-title">⭐ ROAD TO MAY 12 — DOUGLAS COUNTY SD5 ⭐</div>
+    <div id="mapPath" class="map-path"></div>
+    <div class="map-legend">
+      <div class="leg-item"><div class="leg-dot" style="border-color:#22c55e;background:rgba(34,197,94,.2)"></div>Day Complete</div>
+      <div class="leg-item"><div class="leg-dot" style="border-color:var(--gold);background:rgba(245,200,66,.2)"></div>TODAY</div>
+      <div class="leg-item"><div class="leg-dot" style="border-color:rgba(255,255,255,.2);background:rgba(27,58,107,.4)"></div>Ahead</div>
+      <div class="leg-item">🏆 Milestone &nbsp; ⭐ Election Day</div>
+    </div>
+  </div>
+  <div class="card map-stats" style="background:var(--navy-dark);border-color:var(--gold)">
+    <div class="mstat"><div class="sv" id="ms-done">0</div><div class="sl">Days Done</div></div>
+    <div class="mstat"><div class="sv" id="ms-left">30</div><div class="sl">Days Left</div></div>
+    <div class="mstat"><div class="sv" id="ms-pct">0%</div><div class="sl">Complete</div></div>
+    <div class="mstat"><div class="sv" id="ms-next">Apr 14</div><div class="sl">Next Milestone</div></div>
+  </div>
+</div>
+
+<!-- ══════════ SPIN WHEEL ══════════ -->
+<div id="sec-wheel" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🎰 CAMPAIGN ACTION WHEEL</h2></div>
+  <div class="two-col" style="align-items:start">
+    <div class="card" style="text-align:center">
+      <h3 style="text-align:center">SPIN FOR YOUR MISSION!</h3>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:8px 0">
+        <div class="wheel-wrap">
+          <div class="wheel-ptr"></div>
+          <canvas id="wheelCanvas" class="wheel-canvas" width="340" height="340"></canvas>
+          <div class="wheel-center" onclick="spinWheel()">SPIN</div>
+        </div>
+        <button class="spin-btn" id="spinBtn" onclick="spinWheel()">🎰 SPIN!</button>
+        <div class="spin-count">Total spins: <span id="spinCount">0</span> · Unlimited! ♾️</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="card">
+        <h3>🎯 TODAY'S MISSION</h3>
+        <div class="spin-result" id="spinResult">
+          <span class="sr-emoji">🎰</span>
+          <div class="sr-action">SPIN THE WHEEL!</div>
+          <div class="sr-desc">Click SPIN to get your campaign action. Unlimited spins — keep going until you find your mission!</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>➕ ADD CUSTOM ACTION</h3>
+        <div class="form-row" style="margin-bottom:8px">
+          <div style="display:flex;gap:8px">
+            <div style="width:70px;flex-shrink:0"><div class="fl">Emoji</div><input class="inp" id="custom-emoji" placeholder="🎯"></div>
+            <div style="flex:1"><div class="fl">Action Name</div><input class="inp" id="custom-action" placeholder="Knock doors..."></div>
+          </div>
+          <div><div class="fl">Description</div><textarea class="inp ta" id="custom-desc" rows="2" placeholder="What to do..."></textarea></div>
+        </div>
+        <button class="btn-pri" onclick="addCustomAction()">ADD TO WHEEL</button>
+        <div id="customList" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 30-DAY CHALLENGE ══════════ -->
+<div id="sec-challenge" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>⚔️ 30-DAY PLAN — APR 13 TO MAY 12</h2></div>
+  <div class="mgrid" style="margin-bottom:16px">
+    <div class="mc"><div class="ml">Days Complete</div><div class="mv" id="ch-done">0</div></div>
+    <div class="mc"><div class="ml">Tasks Checked</div><div class="mv" id="ch-tasks">0</div></div>
+    <div class="mc"><div class="ml">% Complete</div><div class="mv" id="ch-pct">0%</div></div>
+    <div class="mc accent"><div class="ml">Days Left</div><div class="mv" id="ch-left">30</div></div>
+  </div>
+  <div class="card">
+    <h3>📅 CLICK TO EDIT · CHECK TO COMPLETE</h3>
+    <div class="ch-grid" id="challengeGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════ FUNDRAISING ══════════ -->
+<div id="sec-fundraising" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>💰 FUNDRAISING HQ</h2></div>
+  <div class="two-col">
+    <div class="card">
+      <h3>LOG DONATION</h3>
+      <div class="form-row f2"><div><div class="fl">Donor</div><input class="inp" id="f-name" placeholder="Full name"></div><div><div class="fl">Amount ($)</div><input class="inp" id="f-amt" type="number" min="1" placeholder="0"></div></div>
+      <div class="form-row f2" style="margin-bottom:10px"><div><div class="fl">Source</div><select class="sel" id="f-src"><option>Individual</option><option>Event</option><option>Online</option><option>PAC / Org</option><option>In-Kind</option></select></div><div><div class="fl">Date</div><input class="inp" id="f-date" type="date"></div></div>
+      <button class="btn-pri" onclick="logDonation()">+ LOG DONATION</button>
+    </div>
+    <div class="card">
+      <h3>FUNDRAISING GOAL</h3>
+      <div class="prog-wrap" style="margin-bottom:14px">
+        <div class="prog-label"><span id="f-r-lbl">$0 raised</span><span id="f-g-lbl">$25,000 goal</span></div>
+        <div class="prog-bar" style="height:13px"><div class="prog-fill pf-gold" id="f-prog" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:flex-end">
+        <div style="flex:1"><div class="fl">Update Goal ($)</div><input class="inp" id="f-goal-inp" type="number" placeholder="25000"></div>
+        <button class="btn-pri" onclick="setGoal()">UPDATE</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header"><h3>DONOR LOG</h3><span class="card-sub" id="f-total-lbl">Total: $0</span></div>
+    <div id="donor-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ CONTENT CAL ══════════ -->
+<div id="sec-content" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>📱 CONTENT CALENDAR</h2></div>
+  <div class="card">
+    <h3>ADD CONTENT</h3>
+    <div class="form-row f2"><div><div class="fl">Title / Topic</div><input class="inp" id="con-title" placeholder="Post topic"></div><div><div class="fl">Publish Date</div><input class="inp" id="con-date" type="date"></div></div>
+    <div class="form-row f3" style="margin-bottom:8px">
+      <div><div class="fl">Platform</div><select class="sel" id="con-platform"><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>Twitter/X</option><option>YouTube</option><option>Nextdoor</option><option>Email</option><option>SMS</option><option>Meta Ad</option><option>Mailer</option></select></div>
+      <div><div class="fl">Type</div><select class="sel" id="con-type"><option>Organic post</option><option>Reel</option><option>Story</option><option>Paid ad</option><option>Email blast</option><option>Video</option><option>Press release</option></select></div>
+      <div><div class="fl">Status</div><select class="sel" id="con-status"><option>Idea</option><option>Drafting</option><option>Scheduled</option><option>Published</option></select></div>
+    </div>
+    <div class="form-row" style="margin-bottom:10px"><div class="fl">Caption / Notes</div><textarea class="inp ta" id="con-copy" rows="2" placeholder="Draft copy..."></textarea></div>
+    <button class="btn-pri" onclick="addContent()">+ ADD TO CALENDAR</button>
+  </div>
+  <div class="card">
+    <h3>PIPELINE</h3>
+    <div class="tab-inner"><button class="act" onclick="filterContent('all',this)">All</button><button onclick="filterContent('Idea',this)">Ideas</button><button onclick="filterContent('Drafting',this)">Drafting</button><button onclick="filterContent('Scheduled',this)">Scheduled</button><button onclick="filterContent('Published',this)">Published</button></div>
+    <div id="con-list"></div>
+  </div>
+  <div class="card">
+    <h3>POSTING GUIDE</h3>
+    <table style="width:100%;font-size:12.5px;border-collapse:collapse">
+      <thead><tr><th style="text-align:left;padding:7px 10px;font-size:10px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)">Platform</th><th style="text-align:left;padding:7px 10px;font-size:10px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)">Frequency</th><th style="text-align:left;padding:7px 10px;font-size:10px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border)">Best Types</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Instagram</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">1–2x daily</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Photos, reels, stories, endorsements</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">TikTok</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">1x daily</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">15-60s authentic moments, trends</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Facebook</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">1x daily</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Events, community news, long posts</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Email</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">2x/week</td><td style="padding:8px 10px;border-bottom:1px solid var(--border)">Updates, fundraising, event invites</td></tr>
+        <tr><td style="padding:8px 10px">Meta Ads</td><td style="padding:8px 10px">Always on</td><td style="padding:8px 10px">Voter ID, fundraising, GOTV — geo SD5</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ TASKS ══════════ -->
+<div id="sec-tasks" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>✅ CAMPAIGN TASKS</h2></div>
+  <div class="card">
+    <h3>ADD TASK</h3>
+    <div class="form-row f2"><div><div class="fl">Task</div><input class="inp" id="t-title" placeholder="What needs done?"></div><div><div class="fl">Assigned to</div><input class="inp" id="t-assign" placeholder="Name"></div></div>
+    <div class="form-row f3" style="margin-bottom:10px">
+      <div><div class="fl">Due Date</div><input class="inp" id="t-due" type="date"></div>
+      <div><div class="fl">Priority</div><select class="sel" id="t-pri"><option value="high">🔴 High</option><option value="medium" selected>🟡 Medium</option><option value="low">⚪ Low</option></select></div>
+      <div><div class="fl">Category</div><select class="sel" id="t-cat"><option>Field</option><option>Comms</option><option>Fundraising</option><option>Events</option><option>Social</option><option>Admin</option><option>Legal</option></select></div>
+    </div>
+    <button class="btn-pri" onclick="addTask()">+ ADD TASK</button>
+  </div>
+  <div class="card">
+    <h3>OPEN TASKS</h3>
+    <div class="tab-inner"><button class="act" onclick="filterTasks('all',this)">All</button><button onclick="filterTasks('high',this)">🔴 High</button><button onclick="filterTasks('Field',this)">Field</button><button onclick="filterTasks('Comms',this)">Comms</button><button onclick="filterTasks('Social',this)">Social</button><button onclick="filterTasks('Fundraising',this)">Fundraising</button></div>
+    <div id="task-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ OUR EVENTS ══════════ -->
+<div id="sec-events-host" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>📅 EVENTS WE HOST</h2></div>
+  <div class="card">
+    <h3>ADD EVENT / CANVASS</h3>
+    <div class="form-row f2"><div><div class="fl">Event Name</div><input class="inp" id="eh-name" placeholder="Event name"></div><div><div class="fl">Date</div><input class="inp" id="eh-date" type="date"></div></div>
+    <div class="form-row f3" style="margin-bottom:8px">
+      <div><div class="fl">Type</div><select class="sel" id="eh-type"><option>Canvass</option><option>Phone bank</option><option>Fundraiser</option><option>Town hall</option><option>Volunteer training</option><option>GOTV rally</option><option>Community event</option></select></div>
+      <div><div class="fl">Location</div><input class="inp" id="eh-loc" placeholder="Address or venue"></div>
+      <div><div class="fl">Expected Attendees</div><input class="inp" id="eh-att" type="number" placeholder="0" min="0"></div>
+    </div>
+    <div class="form-row f2" style="margin-bottom:10px">
+      <div><div class="fl">Revenue Goal ($)</div><input class="inp" id="eh-rev" type="number" placeholder="0" min="0"></div>
+      <div><div class="fl">Status</div><select class="sel" id="eh-status"><option>Planning</option><option>Confirmed</option><option>Complete</option><option>Cancelled</option></select></div>
+    </div>
+    <button class="btn-pri" onclick="addHostedEvent()">ADD EVENT</button>
+  </div>
+  <div class="card">
+    <h3>EVENT CALENDAR</h3>
+    <div class="cal-nav">
+      <button onclick="changeMonth(-1)">‹ Prev</button>
+      <span class="cal-month-lbl" id="cal-month-lbl">April 2026</span>
+      <button onclick="changeMonth(1)">Next ›</button>
+    </div>
+    <div class="cal-hdr-row" id="cal-header"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div style="margin-top:10px" id="cal-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ APPEARANCES ══════════ -->
+<div id="sec-events-attend" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🎤 CHRISTIAN'S APPEARANCES</h2></div>
+  <div class="card">
+    <h3>ADD APPEARANCE</h3>
+    <div class="form-row f2"><div><div class="fl">Event Name</div><input class="inp" id="ea-name" placeholder="Event name"></div><div><div class="fl">Date</div><input class="inp" id="ea-date" type="date"></div></div>
+    <div class="form-row f3" style="margin-bottom:8px">
+      <div><div class="fl">Host / Org</div><input class="inp" id="ea-host" placeholder="Association, group..."></div>
+      <div><div class="fl">Type</div><select class="sel" id="ea-type"><option>Association meeting</option><option>Endorsement interview</option><option>Candidate forum</option><option>Community event</option><option>Funder meeting</option><option>Media appearance</option><option>Coalition event</option><option>Ally event</option></select></div>
+      <div><div class="fl">Importance (1–5)</div><select class="sel" id="ea-imp"><option value="5">5 — Critical</option><option value="4">4 — High</option><option value="3" selected>3 — Medium</option><option value="2">2 — Low</option><option value="1">1 — Optional</option></select></div>
+    </div>
+    <div class="form-row f2" style="margin-bottom:10px">
+      <div><div class="fl">Social Post?</div><select class="sel" id="ea-social"><option value="yes">Yes — post it</option><option value="story">Story only</option><option value="no">No post</option></select></div>
+      <div><div class="fl">Notes</div><input class="inp" id="ea-notes" placeholder="Talking points, who's there..."></div>
+    </div>
+    <button class="btn-pri" onclick="addAttendEvent()">ADD TO SCHEDULE</button>
+  </div>
+  <div class="card">
+    <h3>SCHEDULE</h3>
+    <div class="tab-inner"><button class="act" onclick="filterAttend('all',this)">All</button><button onclick="filterAttend('Endorsement interview',this)">Endorsements</button><button onclick="filterAttend('Funder meeting',this)">Funders</button><button onclick="filterAttend('Candidate forum',this)">Forums</button></div>
+    <div id="attend-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ ALLIES ══════════ -->
+<div id="sec-allies" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🤝 ALLIES & NETWORK</h2></div>
+  <div class="card">
+    <h3>ADD ALLY</h3>
+    <div class="form-row f2"><div><div class="fl">Name</div><input class="inp" id="al-name" placeholder="Full name"></div><div><div class="fl">Org / Role</div><input class="inp" id="al-org" placeholder="Title or org"></div></div>
+    <div class="form-row f3" style="margin-bottom:10px">
+      <div><div class="fl">Type</div><select class="sel" id="al-type"><option>Endorser</option><option>Ally candidate</option><option>Association</option><option>Labor / union</option><option>Community leader</option><option>Media contact</option><option>Coalition partner</option></select></div>
+      <div><div class="fl">Relationship</div><select class="sel" id="al-rel"><option>Strong</option><option selected>Warm</option><option>New</option><option>Need outreach</option></select></div>
+      <div><div class="fl">Contact</div><input class="inp" id="al-contact" placeholder="Phone or email"></div>
+    </div>
+    <button class="btn-pri" onclick="addAlly()">+ ADD TO NETWORK</button>
+  </div>
+  <div class="card">
+    <h3>ALLY NETWORK</h3>
+    <div class="tab-inner"><button class="act" onclick="filterAllies('all',this)">All</button><button onclick="filterAllies('Endorser',this)">Endorsers</button><button onclick="filterAllies('Labor / union',this)">Labor</button><button onclick="filterAllies('Ally candidate',this)">Candidates</button></div>
+    <div id="ally-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ FUNDERS ══════════ -->
+<div id="sec-funders" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>💼 FUNDER PIPELINE</h2></div>
+  <div class="card">
+    <h3>ADD FUNDER</h3>
+    <div class="form-row f2"><div><div class="fl">Funder Name</div><input class="inp" id="fu-name" placeholder="Name"></div><div><div class="fl">Pledged / Given ($)</div><input class="inp" id="fu-amt" type="number" placeholder="0" min="0"></div></div>
+    <div class="form-row f3" style="margin-bottom:8px">
+      <div><div class="fl">Type</div><select class="sel" id="fu-type"><option>Individual major donor</option><option>PAC</option><option>Foundation</option><option>Labor / union</option><option>Bundler</option><option>In-Kind</option></select></div>
+      <div><div class="fl">Status</div><select class="sel" id="fu-status"><option>Prospecting</option><option>First ask</option><option>Committed</option><option>Received</option><option>Declined</option></select></div>
+      <div><div class="fl">Next Action</div><input class="inp" id="fu-next" type="date"></div>
+    </div>
+    <div class="form-row" style="margin-bottom:10px"><div class="fl">Notes</div><input class="inp" id="fu-notes" placeholder="Relationship, ask amount..."></div>
+    <button class="btn-pri" onclick="addFunder()">ADD FUNDER</button>
+  </div>
+  <div class="card">
+    <h3>PIPELINE</h3>
+    <div class="tab-inner"><button class="act" onclick="filterFunders('all',this)">All</button><button onclick="filterFunders('Committed',this)">Committed</button><button onclick="filterFunders('Prospecting',this)">Prospecting</button><button onclick="filterFunders('First ask',this)">First Ask</button></div>
+    <div id="funder-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ VOLUNTEERS ══════════ -->
+<div id="sec-volunteers" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🙋 VOLUNTEER ROSTER</h2></div>
+  <div class="card">
+    <h3>ADD VOLUNTEER</h3>
+    <div class="form-row f2"><div><div class="fl">Name</div><input class="inp" id="v-name" placeholder="Full name"></div><div><div class="fl">Role</div><select class="sel" id="v-role"><option>Canvasser</option><option>Phone banker</option><option>Field lead</option><option>Driver</option><option>Social media</option><option>Event help</option><option>Translator</option></select></div></div>
+    <div class="form-row f3" style="margin-bottom:10px"><div><div class="fl">Phone</div><input class="inp" id="v-phone" placeholder="(402) 000-0000"></div><div><div class="fl">Email</div><input class="inp" id="v-email" placeholder="email@"></div><div><div class="fl">Hours Logged</div><input class="inp" id="v-hours" type="number" min="0" placeholder="0"></div></div>
+    <button class="btn-pri" onclick="addVolunteer()">+ ADD VOLUNTEER</button>
+  </div>
+  <div class="card">
+    <div class="card-header"><h3>ROSTER — <span id="vol-count">0</span> VOLUNTEERS</h3></div>
+    <div class="tab-inner"><button class="act" onclick="filterVols('all',this)">All</button><button onclick="filterVols('Canvasser',this)">Canvassers</button><button onclick="filterVols('Phone banker',this)">Phone Bank</button><button onclick="filterVols('Field lead',this)">Field Leads</button></div>
+    <div id="vol-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ TURF ══════════ -->
+<div id="sec-turf" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>📍 CUTTING TURF — SD5</h2></div>
+  <div class="mgrid" style="margin-bottom:14px">
+    <div class="mc accent"><div class="ml">Doors Knocked</div><div class="mv" id="turf-knocked">0</div><div class="ms">across all turfs</div></div>
+    <div class="mc"><div class="ml">% Covered</div><div class="mv" id="turf-pct">0%</div></div>
+    <div class="mc"><div class="ml">Complete Turfs</div><div class="mv" id="turf-done">0</div></div>
+    <div class="mc"><div class="ml">Total Turfs</div><div class="mv" id="turf-total">0</div></div>
+  </div>
+  <div class="card">
+    <div class="card-header"><h3>SD5 COVERAGE</h3><span class="card-sub" id="turf-overall-lbl">0 doors</span></div>
+    <div class="prog-bar" style="height:12px"><div class="prog-fill pf-navy" id="turf-overall-bar" style="width:0%"></div></div>
+  </div>
+  <div class="card">
+    <h3>ADD TURF</h3>
+    <div class="form-row f2"><div><div class="fl">Turf Name</div><input class="inp" id="turf-name" placeholder="e.g. Precinct 1 North"></div><div><div class="fl">Precinct</div><select class="sel" id="turf-precinct"><option>Precinct 1</option><option>Precinct 2</option><option>Precinct 3</option><option>Precinct 4</option><option>Precinct 5</option><option>Other</option></select></div></div>
+    <div class="form-row f3" style="margin-bottom:8px">
+      <div><div class="fl">Total Doors</div><input class="inp" id="turf-doors-total" type="number" placeholder="120" min="0"></div>
+      <div><div class="fl">Knocked</div><input class="inp" id="turf-doors-knocked" type="number" placeholder="0" min="0"></div>
+      <div><div class="fl">Status</div><select class="sel" id="turf-status"><option value="not-started">Not Started</option><option value="in-progress">In Progress</option><option value="complete">Complete</option></select></div>
+    </div>
+    <div class="form-row f2" style="margin-bottom:10px"><div><div class="fl">Assigned To</div><input class="inp" id="turf-vol" placeholder="Volunteer name(s)"></div><div><div class="fl">Notes</div><input class="inp" id="turf-notes" placeholder="Dogs, gates, best times..."></div></div>
+    <button class="btn-pri" onclick="addTurf()">ADD TURF</button>
+  </div>
+  <div class="card">
+    <h3>ALL TURFS</h3>
+    <div class="tab-inner"><button class="act" onclick="filterTurfs('all',this)">All</button><button onclick="filterTurfs('not-started',this)">⬜ Not Started</button><button onclick="filterTurfs('in-progress',this)">🟠 In Progress</button><button onclick="filterTurfs('complete',this)">✅ Complete</button></div>
+    <div id="turf-list"></div>
+  </div>
+</div>
+
+<!-- ══════════ ACTIVITY LOG ══════════ -->
+<div id="sec-activity" class="sec">
+  <div class="sec-header"><div class="sec-dot"></div><h2>🔔 ACTIVITY LOG</h2></div>
+  <div class="two-col" style="margin-bottom:14px">
+    <div class="mc accent"><div class="ml">Logged In As</div><div class="mv" id="userBadge" style="font-size:14px">—</div><div class="ms" onclick="localStorage.removeItem('ce_username');currentUser=null;showUserModal()" style="color:rgba(255,200,66,.7);cursor:none;text-decoration:underline">Switch user</div></div>
+    <div class="mc"><div class="ml">Total Changes</div><div class="mv" id="logCount">0</div><div class="ms">since tracking began</div></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3>📋 ALL ACTIVITY</h3>
+      <button class="btn-sec" onclick="activityLog=[];saveKey(STORAGE_KEYS.activityLog,[]);renderActivityLog();toast('🗑️ Log cleared')">Clear log</button>
+    </div>
+    <div id="activityLogList"><div style="font-size:12px;color:var(--faint)">No activity yet</div></div>
+  </div>
+  <div class="card" style="background:rgba(27,58,107,.04);border-color:var(--gold)">
+    <h3>ℹ️ HOW SHARING WORKS</h3>
+    <div style="font-size:13px;color:var(--charcoal);line-height:1.7">
+      <p style="margin-bottom:8px">✅ <strong>Data saves locally</strong> on each device using browser storage — your changes persist when you close and reopen the app.</p>
+      <p style="margin-bottom:8px">🔄 <strong>Activity log polls</strong> every 8 seconds for changes made by others on the same device/browser.</p>
+      <p style="margin-bottom:8px">⚠️ <strong>True multi-device sync</strong> requires a backend. For full real-time sharing between you and Christian on different devices, connect a free Firebase database — ask me for the setup guide!</p>
+      <p>💡 <strong>For now:</strong> use one shared device/browser session, or export JSON and share the file manually from the Edit Site panel.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+<!-- USER IDENTITY MODAL -->
+<div id="userModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99998;align-items:center;justify-content:center">
+  <div style="background:var(--navy-dark);border:2px solid var(--gold);border-radius:14px;padding:28px 32px;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.5);text-align:center">
+    <div style="font-size:36px;margin-bottom:12px">👤</div>
+    <div style="font-family:var(--pixel);font-size:9px;color:var(--gold);margin-bottom:6px">WHO ARE YOU?</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:18px">Your name will appear in the activity log so you and Christian can track changes.</div>
+    <input id="userModalInput" class="inp" style="background:#0f2347;border-color:rgba(245,200,66,.4);color:#fff;font-size:14px;text-align:center;margin-bottom:14px" placeholder="e.g. Christian, Maria, James..." onkeydown="if(event.key==='Enter')setUserName()">
+    <div style="display:flex;gap:8px">
+      <button onclick="setUserName()" style="flex:1;padding:10px;font-family:var(--pixel);font-size:8px;background:var(--gold);color:var(--navy-dark);border:none;border-radius:8px;box-shadow:0 3px 0 var(--gold-dark)">✅ LET'S GO!</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION BUBBLE -->
+<div id="notifBubble" style="display:none;position:fixed;top:90px;right:20px;background:var(--navy-dark);border:2px solid var(--gold);border-radius:10px;padding:10px 16px;font-family:var(--pixel);font-size:7px;color:var(--gold);z-index:9990;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:opacity .4s"></div>
+
+<!-- NOTIFICATION BELL (header badge) -->
+<div id="notifBell" onclick="show('activity',document.querySelectorAll('.nb')[0])" style="position:fixed;top:14px;right:14px;z-index:9995;cursor:none">
+  <div style="background:var(--navy-dark);border:2px solid var(--gold);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.4)" title="Activity Log">🔔</div>
+  <div id="notifDot" style="position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:var(--red);border-radius:50%;border:2px solid var(--navy-dark);display:none"></div>
+</div>
+
+<!-- FLOATING EDIT BUTTON -->
+<div id="editFab" style="position:fixed;bottom:28px;left:28px;z-index:9998;display:flex;flex-direction:column;align-items:flex-start;gap:8px">
+  <div id="editMenu" style="display:none;flex-direction:column;gap:6px;background:var(--navy-dark);border:2px solid var(--gold);border-radius:10px;padding:12px 14px;box-shadow:0 8px 32px rgba(0,0,0,.4);min-width:220px">
+    <div style="font-family:var(--pixel);font-size:7px;color:var(--gold);margin-bottom:4px;letter-spacing:.06em">✏️ EDIT CAMPAIGN OS</div>
+    <!-- Candidate name -->
+    <div style="font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Candidate Name</div>
+    <input id="edit-name" class="inp" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff" placeholder="Christian Espinosa Torres">
+    <!-- Office -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Office / District</div>
+    <input id="edit-office" class="inp" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff" placeholder="Douglas County Treasurer">
+    <!-- Tagline -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Tagline</div>
+    <input id="edit-tagline" class="inp" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff" placeholder="Douglas County Primary — May 12, 2026">
+    <!-- Election date -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Election Date</div>
+    <input id="edit-electiondate" class="inp" type="date" value="2026-05-12" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff">
+    <!-- Fundraising goal -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Fundraising Goal ($)</div>
+    <input id="edit-goal" class="inp" type="number" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff" placeholder="25000">
+    <!-- Photo upload shortcut -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:4px">Profile Photo</div>
+    <button onclick="document.getElementById('photoUpload').click()" style="padding:7px 12px;font-size:11px;font-family:var(--sans);background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:6px;color:var(--gold);text-align:left">📷 Upload / Change Photo</button>
+    <!-- Nav label rename -->
+    <div style="font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:4px">Candidate Tab Label</div>
+    <input id="edit-candlabel" class="inp" style="font-size:12px;background:#0f2347;border-color:rgba(245,200,66,.3);color:#fff" placeholder="e.g. Christian's Appearances">
+    <div style="display:flex;gap:6px;margin-top:6px">
+      <button onclick="applyEdits()" style="flex:1;padding:8px;font-family:var(--pixel);font-size:7px;background:var(--gold);color:var(--navy-dark);border:none;border-radius:6px;box-shadow:0 3px 0 var(--gold-dark)">✅ APPLY</button>
+      <button onclick="toggleEditMenu()" style="padding:8px 12px;font-size:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:var(--muted)">✕</button>
+    </div>
+  </div>
+  <button onclick="toggleEditMenu()" id="editFabBtn" style="padding:12px 18px;font-family:var(--pixel);font-size:8px;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--gold);border:2px solid var(--gold);border-radius:10px;box-shadow:0 4px 0 var(--navy-dark),0 0 20px rgba(245,200,66,.3);letter-spacing:.04em;transition:all .15s;display:flex;align-items:center;gap:8px">
+    <span style="font-size:16px">✏️</span> EDIT SITE
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════ PHOTO CHANGE ══════════
+function changePhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=document.getElementById('logoImg');
+    const canvas=document.getElementById('logoCanvas');
+    img.src=e.target.result;
+    img.style.display='block';
+    canvas.style.display='none';
+    // Also update cursor to show photo instead of pixel art
+    const cursorImg=new Image();
+    cursorImg.onload=()=>{
+      const cv=document.getElementById('cursor');
+      const ctx=cv.getContext('2d');
+      ctx.clearRect(0,0,44,44);
+      ctx.save();ctx.beginPath();ctx.arc(22,22,20,0,Math.PI*2);ctx.closePath();ctx.clip();
+      ctx.drawImage(cursorImg,0,0,44,44);ctx.restore();
+      // gold ring
+      ctx.beginPath();ctx.arc(22,22,20,0,Math.PI*2);ctx.strokeStyle='#F5C842';ctx.lineWidth=2.5;ctx.stroke();
+    };
+    cursorImg.src=e.target.result;
+    toast('📷 Photo updated!');
+  };
+  reader.readAsDataURL(file);
+}
+
+const photoOverlay=document.getElementById('photoOverlay');
+const logoRing=photoOverlay.closest('.logo-ring');
+logoRing.addEventListener('mouseenter',()=>{photoOverlay.style.opacity='1';photoOverlay.style.background='rgba(0,0,0,0.45)';});
+logoRing.addEventListener('mouseleave',()=>{photoOverlay.style.opacity='0';photoOverlay.style.background='rgba(0,0,0,0)';});
+
+// ══════════ EDIT MENU ══════════
+function toggleEditMenu(){
+  const menu=document.getElementById('editMenu');
+  const isOpen=menu.style.display!=='none'&&menu.style.display!=='';
+  menu.style.display=isOpen?'none':'flex';
+  const btn=document.getElementById('editFabBtn');
+  btn.style.background=isOpen?'linear-gradient(135deg,var(--navy),var(--navy-light))':'linear-gradient(135deg,var(--gold-dark),var(--gold))';
+  btn.style.color=isOpen?'var(--gold)':'var(--navy-dark)';
+}
+
+function applyEdits(){
+  const name=document.getElementById('edit-name').value.trim();
+  const office=document.getElementById('edit-office').value.trim();
+  const tagline=document.getElementById('edit-tagline').value.trim();
+  const elDate=document.getElementById('edit-electiondate').value;
+  const goalVal=parseInt(document.getElementById('edit-goal').value);
+  const candLabel=document.getElementById('edit-candlabel').value.trim();
+
+  if(name){
+    document.querySelector('.hdr-title h1').textContent=name.toUpperCase()+' FOR TREASURER';
+    document.title=name+' — Campaign OS 2026';
+  }
+  if(office){
+    // update tagline area
+  }
+  if(tagline){
+    document.querySelector('.hdr-title p').textContent=tagline;
+  }
+  if(elDate){
+    electionDate=new Date(elDate+'T06:00:00Z');
+    updateCountdown();
+  }
+  if(goalVal&&goalVal>0){
+    goal=goalVal;
+    updateFundUI();
+  }
+  if(candLabel){
+    // find the appearances nav button
+    const nbs=document.querySelectorAll('.nb');
+    nbs.forEach(nb=>{if(nb.textContent.includes('APPEARANCES')||nb.textContent.includes('Appearances'))nb.textContent='🎤 '+candLabel.toUpperCase();});
+    const h2=document.querySelector('#sec-events-attend .sec-header h2');
+    if(h2)h2.textContent='🎤 '+candLabel.toUpperCase();
+  }
+  toggleEditMenu();
+  toast('✅ Changes applied!');
+  addXP(10);
+}
+const cursorCanvas=document.getElementById('cursor');
+const cc=cursorCanvas.getContext('2d');
+const logoCanvas=document.getElementById('logoCanvas');
+const lc=logoCanvas.getContext('2d');
+
+function drawPixelChristian(ctx,size){
+  ctx.clearRect(0,0,size,size);
+  const s=size/10;
+  const p=(x,y,c)=>{ctx.fillStyle=c;ctx.fillRect(x*s,y*s,s,s)};
+  // Hair
+  [[3,0],[4,0],[5,0],[6,0],[2,1],[7,1],[2,2],[7,2]].forEach(([x,y])=>p(x,y,'#3d2b1f'));
+  // Skin
+  [[3,1],[4,1],[5,1],[6,1],[2,3],[3,2],[4,2],[5,2],[6,2],[7,2],[3,3],[4,3],[5,3],[6,3],[7,3],[2,4],[3,4],[4,4],[5,4],[6,4],[7,4],[8,4]].forEach(([x,y])=>p(x,y,'#f4a460'));
+  // Sunglasses frame
+  ctx.fillStyle='rgba(0,0,0,0.8)';ctx.fillRect(2.8*s,3*s,2*s,0.85*s);ctx.fillRect(5.2*s,3*s,2*s,0.85*s);
+  ctx.fillStyle='#555';ctx.fillRect(4.8*s,3.2*s,0.4*s,0.4*s);
+  // Highlight on glasses
+  ctx.fillStyle='rgba(255,255,255,0.25)';ctx.fillRect(3*s,3.1*s,0.6*s,0.3*s);ctx.fillRect(5.4*s,3.1*s,0.6*s,0.3*s);
+  // Smile
+  [[4,5],[5,5],[6,5]].forEach(([x,y])=>p(x,y,'#f4a460'));
+  [[3,5],[7,5]].forEach(([x,y])=>p(x,y,'#c0392b'));
+  p(4,6,'#e74c3c');p(5,6,'#e74c3c');p(6,6,'#e74c3c');
+  // Suit - navy
+  [[2,7],[3,7],[4,7],[5,7],[6,7],[7,7],[8,7],[2,8],[3,8],[4,8],[5,8],[6,8],[7,8],[8,8]].forEach(([x,y])=>p(x,y,'#1B3A6B'));
+  // Gold tie
+  p(5,7,'#F5C842');p(5,8,'#F5C842');
+  // White shirt
+  p(4,7,'#f0f0f0');p(6,7,'#f0f0f0');
+  // Arms
+  [[1,7],[1,8],[9,7],[9,8]].forEach(([x,y])=>p(x,y,'#f4a460'));
+}
+
+drawPixelChristian(cc,44);
+drawPixelChristian(lc,68);
+
+document.addEventListener('mousemove',e=>{
+  cursorCanvas.style.left=e.clientX+'px';
+  cursorCanvas.style.top=e.clientY+'px';
+});
+
+// ══════════ COUNTDOWN (Chicago/CST) ══════════
+function updateCountdown(){
+  const election=new Date('2026-05-12T06:00:00Z'); // 1am CST = 6am UTC, polls open 6am CST
+  const now=new Date();
+  const diff=election-now;
+  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');return;}
+  document.getElementById('cd-d').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  document.getElementById('ov-days').textContent=Math.ceil(diff/86400000);
+}
+setInterval(updateCountdown,1000);updateCountdown();
+
+// ══════════ XP SYSTEM ══════════
+let xp=0;
+const XP_PER_LV=250;
+function addXP(n){
+  xp+=n;
+  const lv=Math.floor(xp/XP_PER_LV)+1;
+  const pct=((xp%XP_PER_LV)/XP_PER_LV)*100;
+  document.getElementById('xp-val').textContent=xp+' / '+(lv*XP_PER_LV);
+  document.getElementById('xp-fill').style.width=pct+'%';
+  document.getElementById('xp-lv').textContent=lv;
+  document.getElementById('ov-xp').textContent=xp;
+  document.getElementById('ov-lv').textContent='Level '+lv;
+}
+
+// ══════════ TOAST ══════════
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
+
+// ══════════ NAV ══════════
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('vis'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('vis');
+  btn.classList.add('active');
+  if(id==='map')renderMap();
+  if(id==='wheel')drawWheel();
+  if(id==='challenge')renderChallenge();
+  if(id==='events-host')renderCal();
+}
+
+// ══════════ GAMIFIED MAP ══════════
+const MILESTONES={3:{emoji:'📋',label:'VOTER LIST'},7:{emoji:'🚪',label:'CANVASS SURGE'},14:{emoji:'📰',label:'MEDIA PUSH'},21:{emoji:'📞',label:'PHONE BLITZ'},28:{emoji:'🗳️',label:'GOTV LAUNCH'},30:{emoji:'⭐',label:'ELECTION DAY!'}};
+const DAY_EMOJIS=['📱','🚪','☎️','📋','🎪','🤝','💬','📸','📍','🏘️','📣','💡','🎯','📊','🔔','🌟','🗣️','📮','🚶','💪','🎙️','🌐','📲','🔑','🏃','✉️','🎨','🔊','🌟','⭐'];
+
+function renderMap(){
+  const container=document.getElementById('mapPath');
+  const startDate=new Date('2026-04-13');
+  const today=new Date();
+  const dayNum=Math.max(1,Math.floor((today-startDate)/86400000)+1);
+  let html='';
+  for(let i=1;i<=30;i++){
+    const isMile=MILESTONES[i];
+    const isPast=i<dayNum,isCur=i===dayNum,isFut=i>dayNum;
+    const d=new Date(startDate);d.setDate(d.getDate()+i-1);
+    const emoji=isMile?isMile.emoji:DAY_EMOJIS[(i-1)%DAY_EMOJIS.length];
+    const cls=(isMile?'milestone ':'')+( isPast?'done':isCur?'current':'future');
+    const token=isCur?'<div class="cand-token">👤</div>':'';
+    const lbl=isMile?isMile.label:(isPast?'✓':'D'+i);
+    html+=`<div class="map-node"><div class="map-space ${cls}">${token}${emoji}</div><div class="map-day-lbl">D${i}</div><div class="map-space-lbl">${lbl}</div></div>`;
+    if(i<30&&i%10!==0)html+=`<div class="map-dot" style="align-self:center;margin-top:-24px">·</div>`;
+    if(i%10===0&&i<30)html+=`<div style="width:100%;height:0;flex-basis:100%"></div>`;
+  }
+  container.innerHTML=html;
+  const done=Math.max(0,dayNum-1);
+  document.getElementById('ms-done').textContent=done;
+  document.getElementById('ms-left').textContent=30-done;
+  document.getElementById('ms-pct').textContent=Math.round((done/30)*100)+'%';
+  const nextM=Object.keys(MILESTONES).map(Number).find(d=>d>=dayNum);
+  if(nextM){const nd=new Date(startDate);nd.setDate(nd.getDate()+nextM-1);document.getElementById('ms-next').textContent=nd.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+}
+
+// ══════════ SPINNING WHEEL ══════════
+const DEFAULT_ACTIONS=[
+  {emoji:'📸',action:'PHOTO POST',desc:'Take a genuine community photo right now and post it. You + neighbor, a local spot, or your team canvassing. Authentic beats polished every time.'},
+  {emoji:'🎬',action:'POST A REEL',desc:'Film a 15–30 second Reel. Walk and talk about ONE issue. No script — raw and real wins on TikTok & Instagram. Do it now!'},
+  {emoji:'🚪',action:'KNOCK DOORS',desc:'Grab your turf list and knock 30 doors before sunset. Bring palm cards and your 30-second pitch: accessibility, accountability, transparency.'},
+  {emoji:'☎️',action:'PHONE BANK',desc:'Call 20 voters from your supporter list. Focus on confirming supporters — remind them exactly when and where to vote May 12.'},
+  {emoji:'📣',action:'SOCIAL TREND',desc:'Jump on a trending audio or format on TikTok/Reels right now. Add your campaign message creatively. Trends = free reach!'},
+  {emoji:'🏪',action:'VISIT SMALL BIZ',desc:'Walk into a small business in SD5, introduce yourself, leave a card, and ask if they\'d display a yard sign or poster.'},
+  {emoji:'🪧',action:'HANG MORE SIGNS',desc:'Grab 10 yard signs and hit high-traffic intersections in your district. Document it for social — "Signs are up!" posts get great engagement.'},
+  {emoji:'📊',action:'POST INFOGRAPHIC',desc:'Share a clear infographic about the Treasurer\'s role or a local issue. Educate = credibility. Keep it visual and simple.'},
+  {emoji:'🌎',action:'COMMUNITY RESOURCE',desc:'Post a local community resource — food pantry hours, city services, free event. This builds trust and gets organic shares.'},
+  {emoji:'💬',action:'ENGAGE COMMENTS',desc:'Spend 20 minutes responding to EVERY comment and DM on your social. Personal replies convert followers to voters.'},
+  {emoji:'✉️',action:'EMAIL BLAST',desc:'Send a quick campaign update to your email list. Under 200 words, one clear ask, one story. Hit SEND now.'},
+  {emoji:'🎙️',action:'GO LIVE',desc:'Go Facebook or Instagram Live for 10 minutes. Talk about why you\'re running, take questions. Live gets 3x more reach!'},
+  {emoji:'🤝',action:'COALITION EVENT',desc:'Show up for an allied candidate\'s event or community meeting. Cross-promotion is free reach with zero extra cost.'},
+  {emoji:'📰',action:'PITCH MEDIA',desc:'Write a 3-sentence pitch and email it to the Omaha World-Herald or a local blogger. First-gen Latino + AFL-CIO = compelling story.'},
+  {emoji:'💡',action:'VOTER EDUCATION',desc:'Post clear info: how to vote May 12, polling locations, early vote options. These get shared widely and build civic credibility.'},
+  {emoji:'🗃️',action:'UPDATE VOTEBUILDER',desc:'Log your canvass contacts and update voter scores in VoteBuilder. Clean data = smarter targeting for the final push.'},
+  {emoji:'🙌',action:'THANK VOLUNTEERS',desc:'Call or text your top 5 volunteers personally. Appreciation keeps your team energized. Film a quick thank-you video to post.'},
+  {emoji:'💰',action:'FUNDRAISING ASK',desc:'Text 10 supporters and ask for a small contribution right now. Personal texts outperform mass emails 5:1 for conversion.'},
+  {emoji:'🏘️',action:'NEIGHBORHOOD WALK',desc:'Do an informal neighborhood walk — no clipboard, just introduce yourself to people outside. Share to stories as you go.'},
+  {emoji:'⭐',action:'ENDORSEMENT POST',desc:'Design and post a new endorsement graphic. Keep the navy + gold palette consistent. Tag the endorser — they\'ll reshare!'},
+];
+
+let wheelActions=[...DEFAULT_ACTIONS];
+let customActions=[];
+let spinCount=0,isSpinning=false,currentAngle=0;
+
+function drawWheel(){
+  const canvas=document.getElementById('wheelCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const cx=170,cy=170,r=163;
+  const n=wheelActions.length;
+  const slice=(2*Math.PI)/n;
+  const colors=['#1B3A6B','#F5C842','#0f2347','#d4a017','#2a4f8f','#ffe680','#1B3A6B','#F5C842','#0f2347','#d4a017'];
+  ctx.clearRect(0,0,340,340);
+  wheelActions.forEach((a,i)=>{
+    const start=currentAngle+i*slice-Math.PI/2;
+    const end=start+slice;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,end);ctx.closePath();
+    ctx.fillStyle=colors[i%colors.length];ctx.fill();
+    ctx.strokeStyle='#0a1628';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+slice/2);
+    ctx.textAlign='right';
+    const isDark=colors[i%colors.length]==='#F5C842'||colors[i%colors.length]==='#ffe680'||colors[i%colors.length]==='#d4a017';
+    ctx.fillStyle=isDark?'#0f2347':'#F5C842';
+    ctx.font=`bold 10px DM Sans`;ctx.fillText(a.emoji+' '+a.action.slice(0,10),r-8,4);
+    ctx.restore();
+  });
+  ctx.beginPath();ctx.arc(cx,cy,26,0,2*Math.PI);ctx.fillStyle='#0a1628';ctx.fill();
+  ctx.strokeStyle='#F5C842';ctx.lineWidth=3;ctx.stroke();
+}
+
+function spinWheel(){
+  if(isSpinning)return;
+  isSpinning=true;
+  document.getElementById('spinBtn').disabled=true;
+  spinCount++;document.getElementById('spinCount').textContent=spinCount;
+  const extraSpins=(5+Math.random()*5)*2*Math.PI;
+  const randomStop=Math.random()*2*Math.PI;
+  const totalRot=extraSpins+randomStop;
+  const duration=4000;const start=performance.now();const startAngle=currentAngle;
+  function animate(now){
+    const t=Math.min((now-start)/duration,1);
+    const ease=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    currentAngle=startAngle+totalRot*ease;
+    drawWheel();
+    if(t<1){requestAnimationFrame(animate);}
+    else{
+      isSpinning=false;document.getElementById('spinBtn').disabled=false;
+      const n=wheelActions.length;const slice=(2*Math.PI)/n;
+      const ptr=(2*Math.PI)-((currentAngle%(2*Math.PI))+(Math.PI/2));
+      const idx=Math.floor(((ptr%(2*Math.PI)+2*Math.PI)%(2*Math.PI))/slice)%n;
+      showSpinResult(wheelActions[idx]);addXP(25);toast('🎰 SPUN! +25 XP');
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+function showSpinResult(action){
+  document.getElementById('spinResult').innerHTML=`<span class="sr-emoji">${action.emoji}</span><div class="sr-action">${action.action}</div><div class="sr-desc">${action.desc}</div>`;
+}
+
+function addCustomAction(){
+  const emoji=document.getElementById('custom-emoji').value.trim()||'⭐';
+  const action=document.getElementById('custom-action').value.trim();
+  const desc=document.getElementById('custom-desc').value.trim()||'Get out there and do it!';
+  if(!action){toast('❌ Enter an action name');return;}
+  const obj={emoji,action:action.toUpperCase(),desc};
+  customActions.push(obj);wheelActions.push(obj);
+  document.getElementById('custom-emoji').value='';document.getElementById('custom-action').value='';document.getElementById('custom-desc').value='';
+  renderCustomList();drawWheel();addXP(50);toast('✅ Added to wheel! +50 XP');
+}
+
+function renderCustomList(){
+  const list=document.getElementById('customList');
+  if(!customActions.length){list.innerHTML='';return;}
+  list.innerHTML='<div style="font-family:var(--pixel);font-size:6px;color:var(--muted);margin-bottom:6px">CUSTOM ACTIONS:</div>'+customActions.map((a,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--border);font-size:12px"><span style="flex:1">${a.emoji} ${a.action}</span><button class="btn-del" onclick="removeCustom(${i})">✕</button></div>`).join('');
+}
+
+function removeCustom(i){
+  customActions.splice(i,1);wheelActions=[...DEFAULT_ACTIONS,...customActions];
+  renderCustomList();drawWheel();
+}
+
+// ══════════ 30-DAY CHALLENGE ══════════
+const DEFAULT_CH_TASKS=[
+  'Cut turf in VoteBuilder — identify priority precincts','Launch "Why I\'m Running" video on all platforms','Start Meta Ads targeting — $5-10/day to SD5 zip codes',
+  'Assign volunteer turf for first canvass push','Post community storytelling content (Spring Lake Park format)','Connect with allied candidates — Martinez, Piedrahita, Ostdiek',
+  'Send endorsement outreach to 5 associations','Review VoteBuilder data — adjust targeting','Post "how to vote May 12" voter education content',
+  'Pitch Omaha World-Herald — 3-sentence email to reporters','Re-contact soft supporters (2s & 3s from early canvass)','Host phone bank event',
+  'Post AFL-CIO endorsement graphic','Attend community event — post about it in real time','Update supporter list and VoteBuilder scores',
+  'Go live on Facebook or Instagram for 10 min','Send email blast to full list — one clear ask','Knock 100+ doors — document the whole day',
+  'Voter education post + polling location info','Connect with 5 potential bundlers or major donors','GOTV messaging prep — finalize scripts',
+  'Call every confirmed 1-supporter personally','Post 3-week countdown content','Volunteer appreciation post + personal thank-you texts',
+  'Final media pitch — local TV or radio stations','Canvass South Omaha precincts — priority Latino households','Phone bank all confirmed supporters who haven\'t early voted',
+  'Daily GOTV countdown posts — post 2x today','Station volunteers at key South Omaha precincts with palm cards','🗳️ ELECTION DAY — GOTV EVERYTHING!'
+];
+
+let challengeDays=DEFAULT_CH_TASKS.map((task,i)=>({
+  day:i+1,task,done:false,
+  date:(()=>{const d=new Date('2026-04-13');d.setDate(d.getDate()+i);return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});})()
+}));
+
+function renderChallenge(){
+  const grid=document.getElementById('challengeGrid');
+  const today=new Date();
+  const start=new Date('2026-04-13');
+  const dayNum=Math.max(1,Math.floor((today-start)/86400000)+1);
+  const done=challengeDays.filter(d=>d.done).length;
+  const pct=Math.round((done/30)*100);
+  document.getElementById('ch-done').textContent=done;
+  document.getElementById('ch-tasks').textContent=done;
+  document.getElementById('ch-pct').textContent=pct+'%';
+  document.getElementById('ch-left').textContent=Math.max(0,30-dayNum+1);
+  grid.innerHTML=challengeDays.map((d,i)=>{
+    const isToday=(i+1)===dayNum;
+    const cls=(d.done?'completed ':'')+(isToday?'today-day':'');
+    return `<div class="ch-day ${cls}">
+      <div class="ch-hdr"><span class="ch-num">DAY ${d.day}</span><div class="ch-chk ${d.done?'done':''}" onclick="toggleDay(${i})"></div></div>
+      <input class="ch-task-inp" value="${d.task}" onchange="updateDayTask(${i},this.value)" placeholder="Click to edit task...">
+      <div class="ch-date">${d.date}${isToday?' ← TODAY':''}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDay(i){challengeDays[i].done=!challengeDays[i].done;if(challengeDays[i].done){addXP(30);toast('⚔️ DAY '+challengeDays[i].day+' DONE! +30 XP');logActivity('completed Day '+challengeDays[i].day,challengeDays[i].task.slice(0,60));}saveKey(STORAGE_KEYS.challengeDays,challengeDays);renderChallenge();}
+function updateDayTask(i,val){challengeDays[i].task=val;}
+
+// ══════════ FUNDRAISING ══════════
+let raised=0,goal=25000;
+let donations=[
+  {name:'Maria Gonzalez',amt:250,src:'Individual',date:'Apr 10'},
+  {name:'Community First PAC',amt:1000,src:'PAC',date:'Apr 8'},
+  {name:'Spring Gala',amt:2400,src:'Event',date:'Apr 5'},
+  {name:'James Park',amt:100,src:'Online',date:'Apr 7'},
+  {name:'Ana Rivera',amt:50,src:'Individual',date:'Apr 3'},
+];
+
+function initDonations(){raised=donations.reduce((s,d)=>s+d.amt,0);updateFundUI();renderDonors();}
+
+function updateFundUI(){
+  const pct=Math.min(100,Math.round(raised/goal*100));
+  ['f-prog','ov-prog'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.width=pct+'%'});
+  ['f-r-lbl','ov-r-lbl'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='$'+raised.toLocaleString()+' raised'});
+  ['f-g-lbl','ov-g-lbl'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='$'+goal.toLocaleString()+' goal'});
+  document.getElementById('ov-raised').textContent='$'+raised.toLocaleString();
+  document.getElementById('ov-goal-pct').textContent='of $'+goal.toLocaleString();
+  document.getElementById('f-total-lbl').textContent='Total: $'+raised.toLocaleString();
+}
+
+function renderDonors(){
+  const list=document.getElementById('donor-list');
+  if(!donations.length){list.innerHTML='<div style="font-size:12px;color:var(--faint)">No donations yet</div>';return;}
+  list.innerHTML=donations.map((d,i)=>`<div class="task-row"><div style="flex:1"><div style="font-size:13px;font-weight:600">${d.name} <span class="pill p-gold">$${d.amt.toLocaleString()}</span></div><div style="font-size:11px;color:var(--muted);margin-top:2px">${d.src} — ${d.date}</div></div><button class="btn-del" onclick="deleteDonation(${i})">✕</button></div>`).join('');
+}
+
+function logDonation(){
+  const name=document.getElementById('f-name').value.trim();
+  const amt=parseInt(document.getElementById('f-amt').value);
+  const src=document.getElementById('f-src').value;
+  const dv=document.getElementById('f-date').value;
+  if(!name||!amt||amt<1){toast('❌ Enter donor name and amount');return;}
+  const dateStr=dv?new Date(dv).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'Today';
+  donations.unshift({name,amt,src,date:dateStr});
+  raised+=amt;document.getElementById('f-name').value='';document.getElementById('f-amt').value='';
+  updateFundUI();renderDonors();
+  saveKey(STORAGE_KEYS.donations,donations);saveKey(STORAGE_KEYS.raised,raised);
+  logActivity('logged a donation','
+}
+
+function deleteDonation(i){raised-=donations[i].amt;donations.splice(i,1);updateFundUI();renderDonors();}
+function setGoal(){const v=parseInt(document.getElementById('f-goal-inp').value);if(v&&v>0){goal=v;updateFundUI();toast('✅ Goal updated!')}}
+
+// ══════════ CONTENT ══════════
+let content=[];
+const pmap={Instagram:'🟣',Facebook:'🔵',TikTok:'⚫',YouTube:'🔴',Email:'📧','Twitter/X':'✖',Nextdoor:'🏠',SMS:'💬','Meta Ad':'📣',Mailer:'📮'};
+const smap_c={Idea:'p-gray',Drafting:'p-amber',Scheduled:'p-purple',Published:'p-green'};
+
+function addContent(){
+  const title=document.getElementById('con-title').value.trim();
+  if(!title){toast('❌ Enter a title');return;}
+  content.unshift({id:Date.now(),title,date:document.getElementById('con-date').value,platform:document.getElementById('con-platform').value,type:document.getElementById('con-type').value,status:document.getElementById('con-status').value,copy:document.getElementById('con-copy').value.trim()});
+  document.getElementById('con-title').value='';document.getElementById('con-copy').value='';
+  renderContent('all');document.getElementById('ov-content').textContent=content.length;
+  saveKey(STORAGE_KEYS.content,content);
+  logActivity('added content',''+title+' on '+document.getElementById('con-platform').value);
+  addXP(20);toast('📱 CONTENT ADDED! +20 XP');
+}
+
+function renderContent(filter){
+  const list=document.getElementById('con-list');
+  const filtered=filter==='all'?content:content.filter(c=>c.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No content yet</div>';return;}
+  list.innerHTML=filtered.map(c=>{
+    const d=c.date?new Date(c.date).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="con-row"><div class="con-top"><div class="con-title">${pmap[c.platform]||''} ${c.title}</div>${d?`<span style="font-size:11px;color:var(--muted)">${d}</span>`:''}</div>${c.copy?`<div class="con-body">${c.copy}</div>`:''}<div class="con-tags"><span class="pill ${smap_c[c.status]||'p-gray'}">${c.status}</span><span class="pill p-blue">${c.platform}</span><span class="pill p-gray">${c.type}</span><button class="btn-del" style="margin-left:auto" onclick="deleteContent(${c.id})">✕</button></div></div>`;
+  }).join('');
+  // Update ov list
+  const ovList=document.getElementById('ov-con-list');
+  const recent=content.filter(c=>c.status!=='Published').slice(0,4);
+  if(!recent.length){ovList.innerHTML='<div style="font-size:12px;color:var(--faint)">No content yet</div>';return;}
+  ovList.innerHTML=recent.map(c=>`<div class="quick-item"><span class="pill ${smap_c[c.status]||'p-gray'}">${c.status}</span><span class="qi-label">${pmap[c.platform]||''} ${c.title}</span><span class="qi-right">${c.platform}</span></div>`).join('');
+}
+
+function deleteContent(id){content=content.filter(c=>c.id!==id);renderContent('all');document.getElementById('ov-content').textContent=content.length;}
+function filterContent(f,btn){document.querySelectorAll('#sec-content .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderContent(f);}
+
+// ══════════ TASKS ══════════
+let tasks=[];
+function addTask(){
+  const title=document.getElementById('t-title').value.trim();
+  if(!title){toast('❌ Enter a task');return;}
+  tasks.unshift({id:Date.now(),title,assign:document.getElementById('t-assign').value.trim(),due:document.getElementById('t-due').value,pri:document.getElementById('t-pri').value,cat:document.getElementById('t-cat').value,done:false});
+  document.getElementById('t-title').value='';document.getElementById('t-assign').value='';
+  renderTasks('all');updateTaskMeta();
+  saveKey(STORAGE_KEYS.tasks,tasks);
+  logActivity('added a task','"'+title+'" ('+document.getElementById('t-cat').value+')');
+  addXP(15);toast('✅ TASK ADDED! +15 XP');
+}
+
+function renderTasks(filter){
+  const list=document.getElementById('task-list');
+  const now=new Date();
+  const filtered=filter==='all'?tasks:filter==='high'?tasks.filter(t=>t.pri==='high'):tasks.filter(t=>t.cat===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No tasks yet</div>';return;}
+  const pcs={high:'p-red',medium:'p-amber',low:'p-gray'};
+  list.innerHTML=filtered.map(t=>{
+    const ov=t.due&&!t.done&&new Date(t.due)<now;
+    const ds=t.due?new Date(t.due).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="task-row"><div class="task-chk ${t.done?'done':''}" onclick="toggleTask(${t.id})"></div><div class="task-info"><div class="task-title ${t.done?'done':''}">${t.title}</div><div class="task-meta">${t.assign?'<span>👤 '+t.assign+'</span>':''} ${ds?`<span style="color:${ov?'var(--red)':'inherit'}">📅 ${ds}${ov?' ⚠️':''}</span>`:''} <span class="pill ${pcs[t.pri]}">${t.pri}</span> <span class="pill p-gray">${t.cat}</span></div></div><button class="btn-del" onclick="deleteTask(${t.id})">✕</button></div>`;
+  }).join('');
+}
+
+function toggleTask(id){const t=tasks.find(x=>x.id===id);if(t){t.done=!t.done;if(t.done){addXP(20);toast('✅ TASK DONE! +20 XP');logActivity('completed a task','"'+t.title+'"');}saveKey(STORAGE_KEYS.tasks,tasks);renderTasks('all');updateTaskMeta();}}
+function deleteTask(id){tasks=tasks.filter(x=>x.id!==id);renderTasks('all');updateTaskMeta();}
+function filterTasks(f,btn){document.querySelectorAll('#sec-tasks .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderTasks(f);}
+function updateTaskMeta(){
+  const now=new Date();
+  const open=tasks.filter(t=>!t.done).length;
+  const ov=tasks.filter(t=>!t.done&&t.due&&new Date(t.due)<now).length;
+  document.getElementById('ov-tasks').textContent=open;
+  document.getElementById('ov-overdue').textContent=ov+' overdue';
+  const soon=tasks.filter(t=>!t.done&&t.due).sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,4);
+  const ovList=document.getElementById('ov-task-list');
+  if(!soon.length){ovList.innerHTML='<div style="font-size:12px;color:var(--faint)">No upcoming tasks</div>';return;}
+  const pcs={high:'p-red',medium:'p-amber',low:'p-gray'};
+  ovList.innerHTML=soon.map(t=>`<div class="quick-item"><span class="pill ${pcs[t.pri]}">${t.pri[0].toUpperCase()}</span><span class="qi-label">${t.title}</span><span class="qi-right">${new Date(t.due).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span></div>`).join('');
+}
+
+// ══════════ EVENTS HOST + CALENDAR ══════════
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS_W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let calYear=2026,calMonth=3;
+let hostedEvents=[],attendEvents=[];
+
+function addHostedEvent(){
+  const name=document.getElementById('eh-name').value.trim();const date=document.getElementById('eh-date').value;
+  if(!name||!date){toast('❌ Enter name and date');return;}
+  hostedEvents.push({id:Date.now(),name,date,type:document.getElementById('eh-type').value,loc:document.getElementById('eh-loc').value.trim(),att:parseInt(document.getElementById('eh-att').value)||0,rev:parseInt(document.getElementById('eh-rev').value)||0,status:document.getElementById('eh-status').value});
+  document.getElementById('eh-name').value='';document.getElementById('eh-date').value='';document.getElementById('eh-loc').value='';document.getElementById('eh-att').value='';document.getElementById('eh-rev').value='';
+  renderCal();addXP(20);toast('📅 EVENT ADDED! +20 XP');
+}
+
+function renderCal(){
+  const header=document.getElementById('cal-header');
+  header.innerHTML=DAYS_W.map(d=>`<div class="cal-day-name">${d}</div>`).join('');
+  const grid=document.getElementById('cal-grid');
+  const first=new Date(calYear,calMonth,1);
+  const last=new Date(calYear,calMonth+1,0);
+  const startDay=first.getDay();
+  const today=new Date();
+  const evMap={};
+  hostedEvents.forEach(e=>{if(e.date){if(!evMap[e.date])evMap[e.date]=[];evMap[e.date].push({name:e.name,color:'#1B3A6B'});}});
+  attendEvents.forEach(e=>{if(e.date){if(!evMap[e.date])evMap[e.date]=[];evMap[e.date].push({name:e.name,color:'#7c3aed'});}});
+  let cells='';
+  for(let i=0;i<startDay;i++){const d=new Date(calYear,calMonth,1-startDay+i);cells+=`<div class="cal-day other-month"><div class="day-num">${d.getDate()}</div></div>`;}
+  for(let d=1;d<=last.getDate();d++){
+    const ds=calYear+'-'+String(calMonth+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
+    const dayEvs=evMap[ds]||[];
+    const evHtml=dayEvs.slice(0,2).map(e=>`<div class="day-ev" style="background:${e.color}22;color:${e.color}">${e.name}</div>`).join('');
+    cells+=`<div class="cal-day${isToday?' today':''}" onclick="showDayEvs('${ds}')"><div class="day-num">${d}</div>${evHtml}</div>`;
+  }
+  const rem=(7-((startDay+last.getDate())%7))%7;
+  for(let i=1;i<=rem;i++)cells+=`<div class="cal-day other-month"><div class="day-num">${i}</div></div>`;
+  grid.innerHTML=cells;
+  document.getElementById('cal-month-lbl').textContent=MONTHS[calMonth]+' '+calYear;
+  renderCalList();
+}
+
+function renderCalList(){
+  const list=document.getElementById('cal-list');
+  const all=[...hostedEvents.map(e=>({...e,_src:'hosted'})),...attendEvents.map(e=>({...e,_src:'attend'}))].filter(e=>{if(!e.date)return false;const d=new Date(e.date);return d.getFullYear()===calYear&&d.getMonth()===calMonth;}).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  if(!all.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No events this month</div>';return;}
+  list.innerHTML=all.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px"><span class="pill ${e._src==='hosted'?'p-navy':'p-purple'}">${e._src==='hosted'?e.type:'Attend'}</span><span style="flex:1">${e.name}</span><span style="color:var(--muted)">${new Date(e.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span></div>`).join('');
+}
+
+function showDayEvs(ds){
+  const all=[...hostedEvents,...attendEvents].filter(e=>e.date===ds);
+  if(!all.length){toast('No events this day');return;}
+  alert(all.map(e=>e.name).join('\n'));
+}
+
+function changeMonth(dir){
+  calMonth+=dir;if(calMonth>11){calMonth=0;calYear++;}if(calMonth<0){calMonth=11;calYear--;}
+  renderCal();
+}
+
+function addAttendEvent(){
+  const name=document.getElementById('ea-name').value.trim();const date=document.getElementById('ea-date').value;
+  if(!name||!date){toast('❌ Enter name and date');return;}
+  attendEvents.unshift({id:Date.now(),name,date,host:document.getElementById('ea-host').value.trim(),type:document.getElementById('ea-type').value,imp:parseInt(document.getElementById('ea-imp').value),social:document.getElementById('ea-social').value,notes:document.getElementById('ea-notes').value.trim()});
+  document.getElementById('ea-name').value='';document.getElementById('ea-date').value='';document.getElementById('ea-host').value='';document.getElementById('ea-notes').value='';
+  renderAttend('all');addXP(15);toast('🎤 APPEARANCE ADDED! +15 XP');
+}
+
+function renderAttend(filter){
+  const list=document.getElementById('attend-list');
+  const filtered=attendEvents.filter(e=>filter==='all'||e.type===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No appearances yet</div>';return;}
+  const sm={yes:'p-green',story:'p-amber',no:'p-gray'};
+  list.innerHTML=filtered.map(e=>{
+    const d=new Date(e.date);
+    const dots=[1,2,3,4,5].map(i=>`<div class="imp-dot${i<=e.imp?' on':''}"></div>`).join('');
+    return `<div class="ev-attend-row"><div class="ev-date-box"><div class="ev-mon">${d.toLocaleDateString('en-US',{month:'short'}).toUpperCase()}</div><div class="ev-day">${d.getDate()}</div></div><div class="ev-info"><div class="ev-title">${e.name}</div><div class="ev-sub">${e.host||''}</div><div class="imp-bar">${dots}</div><div class="ev-tags"><span class="pill p-gray">${e.type}</span><span class="pill ${sm[e.social]||'p-gray'}">${e.social==='yes'?'Post needed':e.social==='story'?'Story only':'No post'}</span>${e.notes?`<span style="font-size:11px;color:var(--muted)">${e.notes}</span>`:''}<button class="btn-del" style="margin-left:auto" onclick="deleteAttend(${e.id})">✕</button></div></div></div>`;
+  }).join('');
+}
+
+function deleteAttend(id){attendEvents=attendEvents.filter(x=>x.id!==id);renderAttend('all');}
+function filterAttend(f,btn){document.querySelectorAll('#sec-events-attend .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderAttend(f);}
+
+// ══════════ ALLIES ══════════
+let allies=[];
+function addAlly(){
+  const name=document.getElementById('al-name').value.trim();
+  if(!name){toast('❌ Enter a name');return;}
+  allies.unshift({id:Date.now(),name,org:document.getElementById('al-org').value.trim(),type:document.getElementById('al-type').value,rel:document.getElementById('al-rel').value,contact:document.getElementById('al-contact').value.trim()});
+  document.getElementById('al-name').value='';document.getElementById('al-org').value='';document.getElementById('al-contact').value='';
+  renderAllies('all');document.getElementById('ov-allies').textContent=allies.length;
+  saveKey(STORAGE_KEYS.allies,allies);
+  logActivity('added an ally',name+' ('+document.getElementById('al-type').value+')');
+  addXP(30);toast('🤝 ALLY ADDED! +30 XP');
+}
+
+function renderAllies(filter){
+  const list=document.getElementById('ally-list');
+  const filtered=allies.filter(a=>filter==='all'||a.type===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No allies yet</div>';return;}
+  const rc={Strong:'p-green',Warm:'p-blue',New:'p-teal','Need outreach':'p-amber'};
+  const avcs=['#dbeafe|#1d4ed8','#dcfce7|#16a34a','#f3e8ff|#7c3aed','#fff7ed|#c2410c','#f0fdfa|#0d9488'];
+  list.innerHTML=filtered.map((a,i)=>{
+    const c=avcs[i%avcs.length].split('|');
+    const init=a.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+    return `<div class="ally-card"><div class="ally-av" style="background:${c[0]};color:${c[1]}">${init}</div><div class="ally-info"><div class="ally-name">${a.name}</div><div class="ally-role">${a.org||a.type}</div><div class="ally-tags"><span class="pill p-gray">${a.type}</span><span class="pill ${rc[a.rel]||'p-gray'}">${a.rel}</span>${a.contact?`<span style="font-size:10px;color:var(--muted)">${a.contact}</span>`:''}</div></div><button class="btn-del" onclick="deleteAlly(${a.id})">✕</button></div>`;
+  }).join('');
+}
+
+function deleteAlly(id){allies=allies.filter(x=>x.id!==id);renderAllies('all');document.getElementById('ov-allies').textContent=allies.length;}
+function filterAllies(f,btn){document.querySelectorAll('#sec-allies .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderAllies(f);}
+
+// ══════════ FUNDERS ══════════
+let funders=[];
+function addFunder(){
+  const name=document.getElementById('fu-name').value.trim();
+  if(!name){toast('❌ Enter funder name');return;}
+  funders.unshift({id:Date.now(),name,amt:parseInt(document.getElementById('fu-amt').value)||0,type:document.getElementById('fu-type').value,status:document.getElementById('fu-status').value,next:document.getElementById('fu-next').value,notes:document.getElementById('fu-notes').value.trim()});
+  document.getElementById('fu-name').value='';document.getElementById('fu-amt').value='';document.getElementById('fu-notes').value='';document.getElementById('fu-next').value='';
+  renderFunders('all');addXP(20);toast('💼 FUNDER ADDED! +20 XP');
+}
+
+function renderFunders(filter){
+  const list=document.getElementById('funder-list');
+  const filtered=funders.filter(f=>filter==='all'||f.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No funders yet</div>';return;}
+  const sm={Prospecting:'p-gray','First ask':'p-amber',Committed:'p-blue',Received:'p-green',Declined:'p-red'};
+  list.innerHTML=filtered.map(f=>{
+    const ns=f.next?'Next: '+new Date(f.next).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="funder-row"><div class="funder-info"><div class="funder-name">${f.name}</div><div class="funder-detail">${f.type}${ns?' — '+ns:''}${f.notes?' — '+f.notes:''}</div><div style="margin-top:4px"><span class="pill ${sm[f.status]||'p-gray'}">${f.status}</span></div></div><div class="funder-amt">${f.amt?'$'+f.amt.toLocaleString():'—'}</div><button class="btn-del" onclick="deleteFunder(${f.id})">✕</button></div>`;
+  }).join('');
+}
+
+function deleteFunder(id){funders=funders.filter(x=>x.id!==id);renderFunders('all');}
+function filterFunders(f,btn){document.querySelectorAll('#sec-funders .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderFunders(f);}
+
+// ══════════ VOLUNTEERS ══════════
+let volunteers=[];
+function addVolunteer(){
+  const name=document.getElementById('v-name').value.trim();
+  if(!name){toast('❌ Enter volunteer name');return;}
+  volunteers.push({id:Date.now(),name,role:document.getElementById('v-role').value,phone:document.getElementById('v-phone').value.trim(),email:document.getElementById('v-email').value.trim(),hours:parseInt(document.getElementById('v-hours').value)||0});
+  document.getElementById('v-name').value='';document.getElementById('v-phone').value='';document.getElementById('v-email').value='';document.getElementById('v-hours').value='';
+  renderVolunteers('all');addXP(15);toast('🙋 VOLUNTEER ADDED! +15 XP');
+}
+
+function renderVolunteers(filter){
+  const list=document.getElementById('vol-list');
+  const filtered=filter==='all'?volunteers:volunteers.filter(v=>v.role===filter);
+  document.getElementById('vol-count').textContent=volunteers.length;
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No volunteers yet</div>';return;}
+  const avcs=['#dbeafe|#1d4ed8','#dcfce7|#16a34a','#f3e8ff|#7c3aed','#fff7ed|#c2410c','#f0fdfa|#0d9488'];
+  const rm={Canvasser:'p-purple','Phone banker':'p-green','Field lead':'p-blue',Driver:'p-amber','Social media':'p-teal','Event help':'p-gray',Translator:'p-blue'};
+  list.innerHTML=filtered.map((v,i)=>{
+    const c=avcs[i%avcs.length].split('|');
+    const init=v.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+    return `<div class="vol-card"><div class="ally-av" style="background:${c[0]};color:${c[1]}">${init}</div><div class="ally-info"><div class="ally-name">${v.name}</div><div class="ally-role">${v.role} · ${v.hours} hrs</div><div style="margin-top:4px;font-size:11px;color:var(--muted)">${v.phone?'📞 '+v.phone+' ':''} ${v.email?'✉️ '+v.email:''}</div></div><div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end"><span class="pill ${rm[v.role]||'p-gray'}">${v.role}</span><button class="btn-del" onclick="deleteVolunteer(${v.id})">✕</button></div></div>`;
+  }).join('');
+}
+
+function deleteVolunteer(id){volunteers=volunteers.filter(v=>v.id!==id);renderVolunteers('all');}
+function filterVols(f,btn){document.querySelectorAll('#sec-volunteers .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderVolunteers(f);}
+
+// ══════════ TURF ══════════
+let turfs=[];
+function addTurf(){
+  const name=document.getElementById('turf-name').value.trim();
+  if(!name){toast('❌ Enter turf name');return;}
+  turfs.push({id:Date.now(),name,precinct:document.getElementById('turf-precinct').value,total:parseInt(document.getElementById('turf-doors-total').value)||0,knocked:parseInt(document.getElementById('turf-doors-knocked').value)||0,status:document.getElementById('turf-status').value,volunteer:document.getElementById('turf-vol').value.trim(),notes:document.getElementById('turf-notes').value.trim()});
+  document.getElementById('turf-name').value='';document.getElementById('turf-doors-total').value='';document.getElementById('turf-doors-knocked').value='';document.getElementById('turf-vol').value='';document.getElementById('turf-notes').value='';
+  renderTurfs('all');updateTurfStats();addXP(15);toast('📍 TURF ADDED! +15 XP');
+}
+
+function renderTurfs(filter){
+  const list=document.getElementById('turf-list');
+  const filtered=filter==='all'?turfs:turfs.filter(t=>t.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No turfs yet</div>';return;}
+  const sm={'complete':'p-green','in-progress':'p-amber','not-started':'p-gray'};
+  const sl={'complete':'✅ Complete','in-progress':'🟠 In Progress','not-started':'⬜ Not Started'};
+  list.innerHTML=filtered.map(t=>{
+    const pct=t.total>0?Math.round((t.knocked/t.total)*100):0;
+    const pf=t.status==='complete'?'pf-green':t.status==='in-progress'?'pf-amber':'pf-navy';
+    return `<div class="turf-row"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><div style="flex:1"><div style="font-size:13px;font-weight:600">${t.name}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${t.precinct}${t.volunteer?' — 👤 '+t.volunteer:''}</div>${t.notes?`<div style="font-size:10px;color:var(--faint);margin-top:2px">${t.notes}</div>`:''}<div class="prog-wrap" style="margin-top:8px;margin-bottom:0"><div class="prog-label" style="margin-bottom:4px"><span style="font-size:11px">${t.knocked}/${t.total} doors</span><span style="font-size:11px;font-weight:600">${pct}%</span></div><div class="prog-bar"><div class="prog-fill ${pf}" style="width:${pct}%"></div></div></div></div><div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end"><span class="pill ${sm[t.status]}">${sl[t.status]}</span><button class="btn-del" onclick="deleteTurf(${t.id})">✕</button></div></div></div>`;
+  }).join('');
+}
+
+function deleteTurf(id){if(!confirm('Remove this turf?'))return;turfs=turfs.filter(t=>t.id!==id);renderTurfs('all');updateTurfStats();}
+function filterTurfs(f,btn){document.querySelectorAll('#sec-turf .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderTurfs(f);}
+
+function updateTurfStats(){
+  const totalDoors=8420;
+  const knocked=turfs.reduce((s,t)=>s+t.knocked,0);
+  const pct=Math.round((knocked/totalDoors)*100);
+  const done=turfs.filter(t=>t.status==='complete').length;
+  document.getElementById('turf-knocked').textContent=knocked.toLocaleString();
+  document.getElementById('turf-pct').textContent=pct+'%';
+  document.getElementById('turf-done').textContent=done;
+  document.getElementById('turf-total').textContent=turfs.length;
+  document.getElementById('turf-overall-bar').style.width=Math.min(pct,100)+'%';
+  document.getElementById('turf-overall-lbl').textContent=knocked.toLocaleString()+' of ~'+totalDoors.toLocaleString()+' doors';
+}
+
+// ══════════ PERSISTENT STORAGE + ACTIVITY LOG ══════════
+let currentUser = null;
+let activityLog = [];
+const STORAGE_KEYS = {
+  donations:'ce_donations', tasks:'ce_tasks', content:'ce_content',
+  allies:'ce_allies', funders:'ce_funders', volunteers:'ce_volunteers',
+  turfs:'ce_turfs', hostedEvents:'ce_hosted', attendEvents:'ce_attend',
+  challengeDays:'ce_challenge', goal:'ce_goal', raised:'ce_raised',
+  activityLog:'ce_activity', userName:'ce_username'
+};
+
+// Who are you?
+function promptForUser(){
+  if(currentUser) return;
+  const saved = localStorage.getItem(STORAGE_KEYS.userName);
+  if(saved){currentUser=saved;updateUserBadge();return;}
+  showUserModal();
+}
+
+function showUserModal(){
+  document.getElementById('userModal').style.display='flex';
+  document.getElementById('userModalInput').focus();
+}
+
+function setUserName(){
+  const name = document.getElementById('userModalInput').value.trim();
+  if(!name){alert('Please enter your name!');return;}
+  currentUser = name;
+  localStorage.setItem(STORAGE_KEYS.userName, name);
+  document.getElementById('userModal').style.display='none';
+  updateUserBadge();
+  toast('👋 Welcome, '+name+'!');
+  loadAllData();
+}
+
+function updateUserBadge(){
+  const badge = document.getElementById('userBadge');
+  if(badge) badge.textContent = '👤 '+currentUser;
+}
+
+// Log an activity
+function logActivity(action, details=''){
+  if(!currentUser) return;
+  const entry = {
+    user: currentUser,
+    action,
+    details,
+    time: new Date().toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}),
+    ts: Date.now()
+  };
+  activityLog.unshift(entry);
+  if(activityLog.length > 50) activityLog = activityLog.slice(0,50);
+  saveKey(STORAGE_KEYS.activityLog, activityLog);
+  renderActivityLog();
+  showActivityNotif(entry);
+}
+
+function showActivityNotif(entry){
+  const n = document.getElementById('notifBubble');
+  n.textContent = '🔔 '+entry.user+': '+entry.action;
+  n.style.display='block';n.style.opacity='1';
+  clearTimeout(n._t);
+  n._t = setTimeout(()=>{n.style.opacity='0';setTimeout(()=>n.style.display='none',400);},4000);
+}
+
+function renderActivityLog(){
+  const list = document.getElementById('activityLogList');
+  if(!list) return;
+  if(!activityLog.length){list.innerHTML='<div style="font-size:12px;color:var(--muted);padding:8px 0">No activity yet</div>';return;}
+  list.innerHTML = activityLog.map(e=>`
+    <div style="padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start">
+      <div style="width:28px;height:28px;border-radius:50%;background:rgba(27,58,107,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:var(--navy)">${e.user.slice(0,1).toUpperCase()}</div>
+      <div style="flex:1">
+        <div style="font-size:12.5px;font-weight:600;color:var(--charcoal)">${e.user} <span style="font-weight:400;color:var(--muted)">${e.action}</span></div>
+        ${e.details?`<div style="font-size:11.5px;color:var(--muted);margin-top:1px">${e.details}</div>`:''}
+        <div style="font-size:10.5px;color:var(--faint);margin-top:2px">⏱ ${e.time} · Chicago</div>
+      </div>
+    </div>`).join('');
+}
+
+// Save / Load helpers using localStorage (persists across page closes)
+function saveKey(key, data){ try{localStorage.setItem(key, JSON.stringify(data));}catch(e){} }
+function loadKey(key, fallback){ try{const r=localStorage.getItem(key);return r?JSON.parse(r):fallback;}catch(e){return fallback;} }
+
+function saveAllData(){
+  saveKey(STORAGE_KEYS.donations, donations);
+  saveKey(STORAGE_KEYS.tasks, tasks);
+  saveKey(STORAGE_KEYS.content, content);
+  saveKey(STORAGE_KEYS.allies, allies);
+  saveKey(STORAGE_KEYS.funders, funders);
+  saveKey(STORAGE_KEYS.volunteers, volunteers);
+  saveKey(STORAGE_KEYS.turfs, turfs);
+  saveKey(STORAGE_KEYS.hostedEvents, hostedEvents);
+  saveKey(STORAGE_KEYS.attendEvents, attendEvents);
+  saveKey(STORAGE_KEYS.challengeDays, challengeDays);
+  saveKey(STORAGE_KEYS.goal, goal);
+  saveKey(STORAGE_KEYS.raised, raised);
+}
+
+function loadAllData(){
+  donations = loadKey(STORAGE_KEYS.donations, donations);
+  tasks = loadKey(STORAGE_KEYS.tasks, []);
+  content = loadKey(STORAGE_KEYS.content, []);
+  allies = loadKey(STORAGE_KEYS.allies, []);
+  funders = loadKey(STORAGE_KEYS.funders, []);
+  volunteers = loadKey(STORAGE_KEYS.volunteers, []);
+  turfs = loadKey(STORAGE_KEYS.turfs, []);
+  hostedEvents = loadKey(STORAGE_KEYS.hostedEvents, []);
+  attendEvents = loadKey(STORAGE_KEYS.attendEvents, []);
+  challengeDays = loadKey(STORAGE_KEYS.challengeDays, challengeDays);
+  goal = loadKey(STORAGE_KEYS.goal, 25000);
+  raised = loadKey(STORAGE_KEYS.raised, 0);
+  activityLog = loadKey(STORAGE_KEYS.activityLog, []);
+  // Refresh all UI
+  updateFundUI(); renderDonors(); renderTasks('all'); renderContent('all');
+  renderAllies('all'); renderFunders('all'); renderVolunteers('all');
+  renderTurfs('all'); updateTurfStats(); renderCal(); renderAttend('all');
+  renderChallenge(); updateHeader(); renderActivityLog();
+}
+
+// Poll for changes every 8 seconds (simulates multi-user awareness)
+setInterval(()=>{
+  const newLog = loadKey(STORAGE_KEYS.activityLog,[]);
+  if(newLog.length && (!activityLog.length || newLog[0].ts !== activityLog[0]?.ts)){
+    const newest = newLog[0];
+    if(newest.user !== currentUser){
+      activityLog = newLog;
+      renderActivityLog();
+      showActivityNotif(newest);
+      // Reload data if changed by another user
+      loadAllData();
+    }
+  }
+}, 8000);
+
+// ══════════ INIT ══════════
+window.addEventListener('load',()=>{
+  const today=new Date().toISOString().slice(0,10);
+  ['f-date','t-due','con-date','eh-date','ea-date','fu-next'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=today;});
+  promptForUser();
+  renderMap(); drawWheel(); renderChallenge(); renderCal();
+});
+</script>
+</body>
+</html>
++amt.toLocaleString()+' from '+name+' ('+src+')');
+  addXP(40);toast('💰 DONATION LOGGED! +40 XP');
+}
+
+function deleteDonation(i){raised-=donations[i].amt;donations.splice(i,1);updateFundUI();renderDonors();}
+function setGoal(){const v=parseInt(document.getElementById('f-goal-inp').value);if(v&&v>0){goal=v;updateFundUI();toast('✅ Goal updated!')}}
+
+// ══════════ CONTENT ══════════
+let content=[];
+const pmap={Instagram:'🟣',Facebook:'🔵',TikTok:'⚫',YouTube:'🔴',Email:'📧','Twitter/X':'✖',Nextdoor:'🏠',SMS:'💬','Meta Ad':'📣',Mailer:'📮'};
+const smap_c={Idea:'p-gray',Drafting:'p-amber',Scheduled:'p-purple',Published:'p-green'};
+
+function addContent(){
+  const title=document.getElementById('con-title').value.trim();
+  if(!title){toast('❌ Enter a title');return;}
+  content.unshift({id:Date.now(),title,date:document.getElementById('con-date').value,platform:document.getElementById('con-platform').value,type:document.getElementById('con-type').value,status:document.getElementById('con-status').value,copy:document.getElementById('con-copy').value.trim()});
+  document.getElementById('con-title').value='';document.getElementById('con-copy').value='';
+  renderContent('all');document.getElementById('ov-content').textContent=content.length;
+  addXP(20);toast('📱 CONTENT ADDED! +20 XP');
+}
+
+function renderContent(filter){
+  const list=document.getElementById('con-list');
+  const filtered=filter==='all'?content:content.filter(c=>c.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No content yet</div>';return;}
+  list.innerHTML=filtered.map(c=>{
+    const d=c.date?new Date(c.date).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="con-row"><div class="con-top"><div class="con-title">${pmap[c.platform]||''} ${c.title}</div>${d?`<span style="font-size:11px;color:var(--muted)">${d}</span>`:''}</div>${c.copy?`<div class="con-body">${c.copy}</div>`:''}<div class="con-tags"><span class="pill ${smap_c[c.status]||'p-gray'}">${c.status}</span><span class="pill p-blue">${c.platform}</span><span class="pill p-gray">${c.type}</span><button class="btn-del" style="margin-left:auto" onclick="deleteContent(${c.id})">✕</button></div></div>`;
+  }).join('');
+  // Update ov list
+  const ovList=document.getElementById('ov-con-list');
+  const recent=content.filter(c=>c.status!=='Published').slice(0,4);
+  if(!recent.length){ovList.innerHTML='<div style="font-size:12px;color:var(--faint)">No content yet</div>';return;}
+  ovList.innerHTML=recent.map(c=>`<div class="quick-item"><span class="pill ${smap_c[c.status]||'p-gray'}">${c.status}</span><span class="qi-label">${pmap[c.platform]||''} ${c.title}</span><span class="qi-right">${c.platform}</span></div>`).join('');
+}
+
+function deleteContent(id){content=content.filter(c=>c.id!==id);renderContent('all');document.getElementById('ov-content').textContent=content.length;}
+function filterContent(f,btn){document.querySelectorAll('#sec-content .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderContent(f);}
+
+// ══════════ TASKS ══════════
+let tasks=[];
+function addTask(){
+  const title=document.getElementById('t-title').value.trim();
+  if(!title){toast('❌ Enter a task');return;}
+  tasks.unshift({id:Date.now(),title,assign:document.getElementById('t-assign').value.trim(),due:document.getElementById('t-due').value,pri:document.getElementById('t-pri').value,cat:document.getElementById('t-cat').value,done:false});
+  document.getElementById('t-title').value='';document.getElementById('t-assign').value='';
+  renderTasks('all');updateTaskMeta();addXP(15);toast('✅ TASK ADDED! +15 XP');
+}
+
+function renderTasks(filter){
+  const list=document.getElementById('task-list');
+  const now=new Date();
+  const filtered=filter==='all'?tasks:filter==='high'?tasks.filter(t=>t.pri==='high'):tasks.filter(t=>t.cat===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No tasks yet</div>';return;}
+  const pcs={high:'p-red',medium:'p-amber',low:'p-gray'};
+  list.innerHTML=filtered.map(t=>{
+    const ov=t.due&&!t.done&&new Date(t.due)<now;
+    const ds=t.due?new Date(t.due).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="task-row"><div class="task-chk ${t.done?'done':''}" onclick="toggleTask(${t.id})"></div><div class="task-info"><div class="task-title ${t.done?'done':''}">${t.title}</div><div class="task-meta">${t.assign?'<span>👤 '+t.assign+'</span>':''} ${ds?`<span style="color:${ov?'var(--red)':'inherit'}">📅 ${ds}${ov?' ⚠️':''}</span>`:''} <span class="pill ${pcs[t.pri]}">${t.pri}</span> <span class="pill p-gray">${t.cat}</span></div></div><button class="btn-del" onclick="deleteTask(${t.id})">✕</button></div>`;
+  }).join('');
+}
+
+function toggleTask(id){const t=tasks.find(x=>x.id===id);if(t){t.done=!t.done;if(t.done){addXP(20);toast('✅ TASK DONE! +20 XP')}renderTasks('all');updateTaskMeta();}}
+function deleteTask(id){tasks=tasks.filter(x=>x.id!==id);renderTasks('all');updateTaskMeta();}
+function filterTasks(f,btn){document.querySelectorAll('#sec-tasks .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderTasks(f);}
+function updateTaskMeta(){
+  const now=new Date();
+  const open=tasks.filter(t=>!t.done).length;
+  const ov=tasks.filter(t=>!t.done&&t.due&&new Date(t.due)<now).length;
+  document.getElementById('ov-tasks').textContent=open;
+  document.getElementById('ov-overdue').textContent=ov+' overdue';
+  const soon=tasks.filter(t=>!t.done&&t.due).sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,4);
+  const ovList=document.getElementById('ov-task-list');
+  if(!soon.length){ovList.innerHTML='<div style="font-size:12px;color:var(--faint)">No upcoming tasks</div>';return;}
+  const pcs={high:'p-red',medium:'p-amber',low:'p-gray'};
+  ovList.innerHTML=soon.map(t=>`<div class="quick-item"><span class="pill ${pcs[t.pri]}">${t.pri[0].toUpperCase()}</span><span class="qi-label">${t.title}</span><span class="qi-right">${new Date(t.due).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span></div>`).join('');
+}
+
+// ══════════ EVENTS HOST + CALENDAR ══════════
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS_W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let calYear=2026,calMonth=3;
+let hostedEvents=[],attendEvents=[];
+
+function addHostedEvent(){
+  const name=document.getElementById('eh-name').value.trim();const date=document.getElementById('eh-date').value;
+  if(!name||!date){toast('❌ Enter name and date');return;}
+  hostedEvents.push({id:Date.now(),name,date,type:document.getElementById('eh-type').value,loc:document.getElementById('eh-loc').value.trim(),att:parseInt(document.getElementById('eh-att').value)||0,rev:parseInt(document.getElementById('eh-rev').value)||0,status:document.getElementById('eh-status').value});
+  document.getElementById('eh-name').value='';document.getElementById('eh-date').value='';document.getElementById('eh-loc').value='';document.getElementById('eh-att').value='';document.getElementById('eh-rev').value='';
+  renderCal();addXP(20);toast('📅 EVENT ADDED! +20 XP');
+}
+
+function renderCal(){
+  const header=document.getElementById('cal-header');
+  header.innerHTML=DAYS_W.map(d=>`<div class="cal-day-name">${d}</div>`).join('');
+  const grid=document.getElementById('cal-grid');
+  const first=new Date(calYear,calMonth,1);
+  const last=new Date(calYear,calMonth+1,0);
+  const startDay=first.getDay();
+  const today=new Date();
+  const evMap={};
+  hostedEvents.forEach(e=>{if(e.date){if(!evMap[e.date])evMap[e.date]=[];evMap[e.date].push({name:e.name,color:'#1B3A6B'});}});
+  attendEvents.forEach(e=>{if(e.date){if(!evMap[e.date])evMap[e.date]=[];evMap[e.date].push({name:e.name,color:'#7c3aed'});}});
+  let cells='';
+  for(let i=0;i<startDay;i++){const d=new Date(calYear,calMonth,1-startDay+i);cells+=`<div class="cal-day other-month"><div class="day-num">${d.getDate()}</div></div>`;}
+  for(let d=1;d<=last.getDate();d++){
+    const ds=calYear+'-'+String(calMonth+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
+    const dayEvs=evMap[ds]||[];
+    const evHtml=dayEvs.slice(0,2).map(e=>`<div class="day-ev" style="background:${e.color}22;color:${e.color}">${e.name}</div>`).join('');
+    cells+=`<div class="cal-day${isToday?' today':''}" onclick="showDayEvs('${ds}')"><div class="day-num">${d}</div>${evHtml}</div>`;
+  }
+  const rem=(7-((startDay+last.getDate())%7))%7;
+  for(let i=1;i<=rem;i++)cells+=`<div class="cal-day other-month"><div class="day-num">${i}</div></div>`;
+  grid.innerHTML=cells;
+  document.getElementById('cal-month-lbl').textContent=MONTHS[calMonth]+' '+calYear;
+  renderCalList();
+}
+
+function renderCalList(){
+  const list=document.getElementById('cal-list');
+  const all=[...hostedEvents.map(e=>({...e,_src:'hosted'})),...attendEvents.map(e=>({...e,_src:'attend'}))].filter(e=>{if(!e.date)return false;const d=new Date(e.date);return d.getFullYear()===calYear&&d.getMonth()===calMonth;}).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  if(!all.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No events this month</div>';return;}
+  list.innerHTML=all.map(e=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px"><span class="pill ${e._src==='hosted'?'p-navy':'p-purple'}">${e._src==='hosted'?e.type:'Attend'}</span><span style="flex:1">${e.name}</span><span style="color:var(--muted)">${new Date(e.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span></div>`).join('');
+}
+
+function showDayEvs(ds){
+  const all=[...hostedEvents,...attendEvents].filter(e=>e.date===ds);
+  if(!all.length){toast('No events this day');return;}
+  alert(all.map(e=>e.name).join('\n'));
+}
+
+function changeMonth(dir){
+  calMonth+=dir;if(calMonth>11){calMonth=0;calYear++;}if(calMonth<0){calMonth=11;calYear--;}
+  renderCal();
+}
+
+function addAttendEvent(){
+  const name=document.getElementById('ea-name').value.trim();const date=document.getElementById('ea-date').value;
+  if(!name||!date){toast('❌ Enter name and date');return;}
+  attendEvents.unshift({id:Date.now(),name,date,host:document.getElementById('ea-host').value.trim(),type:document.getElementById('ea-type').value,imp:parseInt(document.getElementById('ea-imp').value),social:document.getElementById('ea-social').value,notes:document.getElementById('ea-notes').value.trim()});
+  document.getElementById('ea-name').value='';document.getElementById('ea-date').value='';document.getElementById('ea-host').value='';document.getElementById('ea-notes').value='';
+  renderAttend('all');addXP(15);toast('🎤 APPEARANCE ADDED! +15 XP');
+}
+
+function renderAttend(filter){
+  const list=document.getElementById('attend-list');
+  const filtered=attendEvents.filter(e=>filter==='all'||e.type===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No appearances yet</div>';return;}
+  const sm={yes:'p-green',story:'p-amber',no:'p-gray'};
+  list.innerHTML=filtered.map(e=>{
+    const d=new Date(e.date);
+    const dots=[1,2,3,4,5].map(i=>`<div class="imp-dot${i<=e.imp?' on':''}"></div>`).join('');
+    return `<div class="ev-attend-row"><div class="ev-date-box"><div class="ev-mon">${d.toLocaleDateString('en-US',{month:'short'}).toUpperCase()}</div><div class="ev-day">${d.getDate()}</div></div><div class="ev-info"><div class="ev-title">${e.name}</div><div class="ev-sub">${e.host||''}</div><div class="imp-bar">${dots}</div><div class="ev-tags"><span class="pill p-gray">${e.type}</span><span class="pill ${sm[e.social]||'p-gray'}">${e.social==='yes'?'Post needed':e.social==='story'?'Story only':'No post'}</span>${e.notes?`<span style="font-size:11px;color:var(--muted)">${e.notes}</span>`:''}<button class="btn-del" style="margin-left:auto" onclick="deleteAttend(${e.id})">✕</button></div></div></div>`;
+  }).join('');
+}
+
+function deleteAttend(id){attendEvents=attendEvents.filter(x=>x.id!==id);renderAttend('all');}
+function filterAttend(f,btn){document.querySelectorAll('#sec-events-attend .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderAttend(f);}
+
+// ══════════ ALLIES ══════════
+let allies=[];
+function addAlly(){
+  const name=document.getElementById('al-name').value.trim();
+  if(!name){toast('❌ Enter a name');return;}
+  allies.unshift({id:Date.now(),name,org:document.getElementById('al-org').value.trim(),type:document.getElementById('al-type').value,rel:document.getElementById('al-rel').value,contact:document.getElementById('al-contact').value.trim()});
+  document.getElementById('al-name').value='';document.getElementById('al-org').value='';document.getElementById('al-contact').value='';
+  renderAllies('all');document.getElementById('ov-allies').textContent=allies.length;
+  addXP(30);toast('🤝 ALLY ADDED! +30 XP');
+}
+
+function renderAllies(filter){
+  const list=document.getElementById('ally-list');
+  const filtered=allies.filter(a=>filter==='all'||a.type===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No allies yet</div>';return;}
+  const rc={Strong:'p-green',Warm:'p-blue',New:'p-teal','Need outreach':'p-amber'};
+  const avcs=['#dbeafe|#1d4ed8','#dcfce7|#16a34a','#f3e8ff|#7c3aed','#fff7ed|#c2410c','#f0fdfa|#0d9488'];
+  list.innerHTML=filtered.map((a,i)=>{
+    const c=avcs[i%avcs.length].split('|');
+    const init=a.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+    return `<div class="ally-card"><div class="ally-av" style="background:${c[0]};color:${c[1]}">${init}</div><div class="ally-info"><div class="ally-name">${a.name}</div><div class="ally-role">${a.org||a.type}</div><div class="ally-tags"><span class="pill p-gray">${a.type}</span><span class="pill ${rc[a.rel]||'p-gray'}">${a.rel}</span>${a.contact?`<span style="font-size:10px;color:var(--muted)">${a.contact}</span>`:''}</div></div><button class="btn-del" onclick="deleteAlly(${a.id})">✕</button></div>`;
+  }).join('');
+}
+
+function deleteAlly(id){allies=allies.filter(x=>x.id!==id);renderAllies('all');document.getElementById('ov-allies').textContent=allies.length;}
+function filterAllies(f,btn){document.querySelectorAll('#sec-allies .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderAllies(f);}
+
+// ══════════ FUNDERS ══════════
+let funders=[];
+function addFunder(){
+  const name=document.getElementById('fu-name').value.trim();
+  if(!name){toast('❌ Enter funder name');return;}
+  funders.unshift({id:Date.now(),name,amt:parseInt(document.getElementById('fu-amt').value)||0,type:document.getElementById('fu-type').value,status:document.getElementById('fu-status').value,next:document.getElementById('fu-next').value,notes:document.getElementById('fu-notes').value.trim()});
+  document.getElementById('fu-name').value='';document.getElementById('fu-amt').value='';document.getElementById('fu-notes').value='';document.getElementById('fu-next').value='';
+  renderFunders('all');addXP(20);toast('💼 FUNDER ADDED! +20 XP');
+}
+
+function renderFunders(filter){
+  const list=document.getElementById('funder-list');
+  const filtered=funders.filter(f=>filter==='all'||f.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No funders yet</div>';return;}
+  const sm={Prospecting:'p-gray','First ask':'p-amber',Committed:'p-blue',Received:'p-green',Declined:'p-red'};
+  list.innerHTML=filtered.map(f=>{
+    const ns=f.next?'Next: '+new Date(f.next).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+    return `<div class="funder-row"><div class="funder-info"><div class="funder-name">${f.name}</div><div class="funder-detail">${f.type}${ns?' — '+ns:''}${f.notes?' — '+f.notes:''}</div><div style="margin-top:4px"><span class="pill ${sm[f.status]||'p-gray'}">${f.status}</span></div></div><div class="funder-amt">${f.amt?'$'+f.amt.toLocaleString():'—'}</div><button class="btn-del" onclick="deleteFunder(${f.id})">✕</button></div>`;
+  }).join('');
+}
+
+function deleteFunder(id){funders=funders.filter(x=>x.id!==id);renderFunders('all');}
+function filterFunders(f,btn){document.querySelectorAll('#sec-funders .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderFunders(f);}
+
+// ══════════ VOLUNTEERS ══════════
+let volunteers=[];
+function addVolunteer(){
+  const name=document.getElementById('v-name').value.trim();
+  if(!name){toast('❌ Enter volunteer name');return;}
+  volunteers.push({id:Date.now(),name,role:document.getElementById('v-role').value,phone:document.getElementById('v-phone').value.trim(),email:document.getElementById('v-email').value.trim(),hours:parseInt(document.getElementById('v-hours').value)||0});
+  document.getElementById('v-name').value='';document.getElementById('v-phone').value='';document.getElementById('v-email').value='';document.getElementById('v-hours').value='';
+  renderVolunteers('all');addXP(15);toast('🙋 VOLUNTEER ADDED! +15 XP');
+}
+
+function renderVolunteers(filter){
+  const list=document.getElementById('vol-list');
+  const filtered=filter==='all'?volunteers:volunteers.filter(v=>v.role===filter);
+  document.getElementById('vol-count').textContent=volunteers.length;
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No volunteers yet</div>';return;}
+  const avcs=['#dbeafe|#1d4ed8','#dcfce7|#16a34a','#f3e8ff|#7c3aed','#fff7ed|#c2410c','#f0fdfa|#0d9488'];
+  const rm={Canvasser:'p-purple','Phone banker':'p-green','Field lead':'p-blue',Driver:'p-amber','Social media':'p-teal','Event help':'p-gray',Translator:'p-blue'};
+  list.innerHTML=filtered.map((v,i)=>{
+    const c=avcs[i%avcs.length].split('|');
+    const init=v.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+    return `<div class="vol-card"><div class="ally-av" style="background:${c[0]};color:${c[1]}">${init}</div><div class="ally-info"><div class="ally-name">${v.name}</div><div class="ally-role">${v.role} · ${v.hours} hrs</div><div style="margin-top:4px;font-size:11px;color:var(--muted)">${v.phone?'📞 '+v.phone+' ':''} ${v.email?'✉️ '+v.email:''}</div></div><div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end"><span class="pill ${rm[v.role]||'p-gray'}">${v.role}</span><button class="btn-del" onclick="deleteVolunteer(${v.id})">✕</button></div></div>`;
+  }).join('');
+}
+
+function deleteVolunteer(id){volunteers=volunteers.filter(v=>v.id!==id);renderVolunteers('all');}
+function filterVols(f,btn){document.querySelectorAll('#sec-volunteers .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderVolunteers(f);}
+
+// ══════════ TURF ══════════
+let turfs=[];
+function addTurf(){
+  const name=document.getElementById('turf-name').value.trim();
+  if(!name){toast('❌ Enter turf name');return;}
+  turfs.push({id:Date.now(),name,precinct:document.getElementById('turf-precinct').value,total:parseInt(document.getElementById('turf-doors-total').value)||0,knocked:parseInt(document.getElementById('turf-doors-knocked').value)||0,status:document.getElementById('turf-status').value,volunteer:document.getElementById('turf-vol').value.trim(),notes:document.getElementById('turf-notes').value.trim()});
+  document.getElementById('turf-name').value='';document.getElementById('turf-doors-total').value='';document.getElementById('turf-doors-knocked').value='';document.getElementById('turf-vol').value='';document.getElementById('turf-notes').value='';
+  renderTurfs('all');updateTurfStats();addXP(15);toast('📍 TURF ADDED! +15 XP');
+}
+
+function renderTurfs(filter){
+  const list=document.getElementById('turf-list');
+  const filtered=filter==='all'?turfs:turfs.filter(t=>t.status===filter);
+  if(!filtered.length){list.innerHTML='<div style="font-size:12px;color:var(--faint);padding:8px 0">No turfs yet</div>';return;}
+  const sm={'complete':'p-green','in-progress':'p-amber','not-started':'p-gray'};
+  const sl={'complete':'✅ Complete','in-progress':'🟠 In Progress','not-started':'⬜ Not Started'};
+  list.innerHTML=filtered.map(t=>{
+    const pct=t.total>0?Math.round((t.knocked/t.total)*100):0;
+    const pf=t.status==='complete'?'pf-green':t.status==='in-progress'?'pf-amber':'pf-navy';
+    return `<div class="turf-row"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><div style="flex:1"><div style="font-size:13px;font-weight:600">${t.name}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${t.precinct}${t.volunteer?' — 👤 '+t.volunteer:''}</div>${t.notes?`<div style="font-size:10px;color:var(--faint);margin-top:2px">${t.notes}</div>`:''}<div class="prog-wrap" style="margin-top:8px;margin-bottom:0"><div class="prog-label" style="margin-bottom:4px"><span style="font-size:11px">${t.knocked}/${t.total} doors</span><span style="font-size:11px;font-weight:600">${pct}%</span></div><div class="prog-bar"><div class="prog-fill ${pf}" style="width:${pct}%"></div></div></div></div><div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end"><span class="pill ${sm[t.status]}">${sl[t.status]}</span><button class="btn-del" onclick="deleteTurf(${t.id})">✕</button></div></div></div>`;
+  }).join('');
+}
+
+function deleteTurf(id){if(!confirm('Remove this turf?'))return;turfs=turfs.filter(t=>t.id!==id);renderTurfs('all');updateTurfStats();}
+function filterTurfs(f,btn){document.querySelectorAll('#sec-turf .tab-inner button').forEach(b=>b.classList.remove('act'));btn.classList.add('act');renderTurfs(f);}
+
+function updateTurfStats(){
+  const totalDoors=8420;
+  const knocked=turfs.reduce((s,t)=>s+t.knocked,0);
+  const pct=Math.round((knocked/totalDoors)*100);
+  const done=turfs.filter(t=>t.status==='complete').length;
+  document.getElementById('turf-knocked').textContent=knocked.toLocaleString();
+  document.getElementById('turf-pct').textContent=pct+'%';
+  document.getElementById('turf-done').textContent=done;
+  document.getElementById('turf-total').textContent=turfs.length;
+  document.getElementById('turf-overall-bar').style.width=Math.min(pct,100)+'%';
+  document.getElementById('turf-overall-lbl').textContent=knocked.toLocaleString()+' of ~'+totalDoors.toLocaleString()+' doors';
+}
+
+// ══════════ PERSISTENT STORAGE + ACTIVITY LOG ══════════
+let currentUser = null;
+let activityLog = [];
+const STORAGE_KEYS = {
+  donations:'ce_donations', tasks:'ce_tasks', content:'ce_content',
+  allies:'ce_allies', funders:'ce_funders', volunteers:'ce_volunteers',
+  turfs:'ce_turfs', hostedEvents:'ce_hosted', attendEvents:'ce_attend',
+  challengeDays:'ce_challenge', goal:'ce_goal', raised:'ce_raised',
+  activityLog:'ce_activity', userName:'ce_username'
+};
+
+// Who are you?
+function promptForUser(){
+  if(currentUser) return;
+  const saved = localStorage.getItem(STORAGE_KEYS.userName);
+  if(saved){currentUser=saved;updateUserBadge();return;}
+  showUserModal();
+}
+
+function showUserModal(){
+  document.getElementById('userModal').style.display='flex';
+  document.getElementById('userModalInput').focus();
+}
+
+function setUserName(){
+  const name = document.getElementById('userModalInput').value.trim();
+  if(!name){alert('Please enter your name!');return;}
+  currentUser = name;
+  localStorage.setItem(STORAGE_KEYS.userName, name);
+  document.getElementById('userModal').style.display='none';
+  updateUserBadge();
+  toast('👋 Welcome, '+name+'!');
+  loadAllData();
+}
+
+function updateUserBadge(){
+  const badge = document.getElementById('userBadge');
+  if(badge) badge.textContent = '👤 '+currentUser;
+}
+
+// Log an activity
+function logActivity(action, details=''){
+  if(!currentUser) return;
+  const entry = {
+    user: currentUser,
+    action,
+    details,
+    time: new Date().toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}),
+    ts: Date.now()
+  };
+  activityLog.unshift(entry);
+  if(activityLog.length > 50) activityLog = activityLog.slice(0,50);
+  saveKey(STORAGE_KEYS.activityLog, activityLog);
+  renderActivityLog();
+  showActivityNotif(entry);
+}
+
+function showActivityNotif(entry){
+  const n = document.getElementById('notifBubble');
+  n.textContent = '🔔 '+entry.user+': '+entry.action;
+  n.style.display='block';n.style.opacity='1';
+  clearTimeout(n._t);
+  n._t = setTimeout(()=>{n.style.opacity='0';setTimeout(()=>n.style.display='none',400);},4000);
+}
+
+function renderActivityLog(){
+  const list = document.getElementById('activityLogList');
+  if(!list) return;
+  if(!activityLog.length){list.innerHTML='<div style="font-size:12px;color:var(--muted);padding:8px 0">No activity yet</div>';return;}
+  list.innerHTML = activityLog.map(e=>`
+    <div style="padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start">
+      <div style="width:28px;height:28px;border-radius:50%;background:rgba(27,58,107,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:var(--navy)">${e.user.slice(0,1).toUpperCase()}</div>
+      <div style="flex:1">
+        <div style="font-size:12.5px;font-weight:600;color:var(--charcoal)">${e.user} <span style="font-weight:400;color:var(--muted)">${e.action}</span></div>
+        ${e.details?`<div style="font-size:11.5px;color:var(--muted);margin-top:1px">${e.details}</div>`:''}
+        <div style="font-size:10.5px;color:var(--faint);margin-top:2px">⏱ ${e.time} · Chicago</div>
+      </div>
+    </div>`).join('');
+}
+
+// Save / Load helpers using localStorage (persists across page closes)
+function saveKey(key, data){ try{localStorage.setItem(key, JSON.stringify(data));}catch(e){} }
+function loadKey(key, fallback){ try{const r=localStorage.getItem(key);return r?JSON.parse(r):fallback;}catch(e){return fallback;} }
+
+function saveAllData(){
+  saveKey(STORAGE_KEYS.donations, donations);
+  saveKey(STORAGE_KEYS.tasks, tasks);
+  saveKey(STORAGE_KEYS.content, content);
+  saveKey(STORAGE_KEYS.allies, allies);
+  saveKey(STORAGE_KEYS.funders, funders);
+  saveKey(STORAGE_KEYS.volunteers, volunteers);
+  saveKey(STORAGE_KEYS.turfs, turfs);
+  saveKey(STORAGE_KEYS.hostedEvents, hostedEvents);
+  saveKey(STORAGE_KEYS.attendEvents, attendEvents);
+  saveKey(STORAGE_KEYS.challengeDays, challengeDays);
+  saveKey(STORAGE_KEYS.goal, goal);
+  saveKey(STORAGE_KEYS.raised, raised);
+}
+
+function loadAllData(){
+  donations = loadKey(STORAGE_KEYS.donations, donations);
+  tasks = loadKey(STORAGE_KEYS.tasks, []);
+  content = loadKey(STORAGE_KEYS.content, []);
+  allies = loadKey(STORAGE_KEYS.allies, []);
+  funders = loadKey(STORAGE_KEYS.funders, []);
+  volunteers = loadKey(STORAGE_KEYS.volunteers, []);
+  turfs = loadKey(STORAGE_KEYS.turfs, []);
+  hostedEvents = loadKey(STORAGE_KEYS.hostedEvents, []);
+  attendEvents = loadKey(STORAGE_KEYS.attendEvents, []);
+  challengeDays = loadKey(STORAGE_KEYS.challengeDays, challengeDays);
+  goal = loadKey(STORAGE_KEYS.goal, 25000);
+  raised = loadKey(STORAGE_KEYS.raised, 0);
+  activityLog = loadKey(STORAGE_KEYS.activityLog, []);
+  // Refresh all UI
+  updateFundUI(); renderDonors(); renderTasks('all'); renderContent('all');
+  renderAllies('all'); renderFunders('all'); renderVolunteers('all');
+  renderTurfs('all'); updateTurfStats(); renderCal(); renderAttend('all');
+  renderChallenge(); updateHeader(); renderActivityLog();
+}
+
+// Poll for changes every 8 seconds (simulates multi-user awareness)
+setInterval(()=>{
+  const newLog = loadKey(STORAGE_KEYS.activityLog,[]);
+  if(newLog.length && (!activityLog.length || newLog[0].ts !== activityLog[0]?.ts)){
+    const newest = newLog[0];
+    if(newest.user !== currentUser){
+      activityLog = newLog;
+      renderActivityLog();
+      showActivityNotif(newest);
+      // Reload data if changed by another user
+      loadAllData();
+    }
+  }
+}, 8000);
+
+// ══════════ INIT ══════════
+window.addEventListener('load',()=>{
+  const today=new Date().toISOString().slice(0,10);
+  ['f-date','t-due','con-date','eh-date','ea-date','fu-next'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=today;});
+  promptForUser();
+  renderMap(); drawWheel(); renderChallenge(); renderCal();
+});
+</script>
+</body>
+</html>
